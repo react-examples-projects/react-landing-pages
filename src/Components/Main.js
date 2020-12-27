@@ -1,8 +1,8 @@
 import React, { Suspense } from "react";
 import { Link } from "react-router-dom";
 import { fetchProfileData } from "../fakeApi";
-import Skeleton from "react-loading-skeleton";
-import { Layout, Button, Typography, Divider, List } from "antd";
+import { Layout, Button, Typography, List } from "antd";
+import { LoadingProfilePage, LoadingProfileTime } from "./LoadingsComponents";
 
 // ¡Comienza a cargar los datos con antelación!
 const resource = fetchProfileData();
@@ -31,21 +31,14 @@ export default function ProfilePage() {
       <Content style={{ padding: "2rem 4rem", background: "#fff" }}>
         <Suspense fallback={<LoadingProfilePage />}>
           <ProfileDetails />
-          <Suspense fallback={<Skeleton count={5} />}>
+
+          <Suspense fallback={<LoadingProfileTime/>}>
             <ProfileTimeline />
           </Suspense>
+
         </Suspense>
       </Content>
     </Layout>
-  );
-}
-
-function LoadingProfilePage() {
-  return (
-    <>
-      <Skeleton width={150} />
-      <Skeleton count={5} />
-    </>
   );
 }
 
