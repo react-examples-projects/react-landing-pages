@@ -3,19 +3,19 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const ProfilePageLazy = lazy(() => import("./Components/Main"));
-const ContactLazy = lazy(() => import("./Components/Contact"));
+const SignupLazy = lazy(() => import("./Components/Signup"));
 function Routers() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/contact">
-          <Suspense fallback={"Cargando componente [Contact.js]..."}>
-            <ContactLazy />
+        <Route exact path="/signup">
+          <Suspense fallback={"Cargando componente Signup.js..."}>
+            <SignupLazy />
           </Suspense>
         </Route>
 
         <Route exact path="/">
-          <Suspense fallback={"Cargando componente [ProfilePage.js]..."}>
+          <Suspense fallback={"Cargando componente ProfilePage.js..."}>
             <ProfilePageLazy />
           </Suspense>
         </Route>
