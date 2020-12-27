@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { LoadingSignup } from "./LoadingsComponents";
+import { LoadingSignup, LoadingMain } from "./LoadingsComponents";
 
 const ProfilePageLazy = lazy(() => import("./Main"));
 const SignupLazy = lazy(() => import("./Signup"));
@@ -16,7 +16,7 @@ export default function Routers() {
         </Route>
 
         <Route exact path="/">
-          <Suspense fallback={"Cargando componente ProfilePage.js..."}>
+          <Suspense fallback={<LoadingMain />}>
             <ProfilePageLazy />
           </Suspense>
         </Route>

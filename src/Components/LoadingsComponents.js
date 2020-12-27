@@ -27,3 +27,27 @@ export function LoadingSignup() {
     </div>
   );
 }
+
+export function LoadingMain() {
+  const styles = {
+    nav: {
+      marginBottom: "5rem",
+    },
+
+    content: {
+      width: "100%",
+      maxWidth: "1200px",
+      margin: "auto",
+    },
+  };
+  return (
+    <>
+      <div style={styles.nav}>
+        <Skeleton height={50} />
+      </div>
+      <div style={styles.content}>
+        <Skeleton height={500} />
+      </div>
+    </>
+  );
+}
