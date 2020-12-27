@@ -1,6 +1,10 @@
+body {
+  background: #eee;
+}
+
 .App {
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   margin: auto;
-  margin-top: 4rem;
+  margin-top: 10rem;
 }
