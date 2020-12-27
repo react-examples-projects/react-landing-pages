@@ -4,6 +4,7 @@ import { LoadingSignup, LoadingMain } from "./LoadingsComponents";
 
 const ProfilePageLazy = lazy(() => import("./Main"));
 const SignupLazy = lazy(() => import("./Signup"));
+const LoginLazy = lazy(() => import("./Login"));
 
 export default function Routers() {
   return (
@@ -12,6 +13,12 @@ export default function Routers() {
         <Route exact path="/signup">
           <Suspense fallback={<LoadingSignup />}>
             <SignupLazy />
+          </Suspense>
+        </Route>
+
+        <Route exact path="/login">
+          <Suspense fallback={<LoadingSignup />}>
+            <LoginLazy />
           </Suspense>
         </Route>
 
