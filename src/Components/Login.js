@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Button, Tooltip, Input, Alert, Typography, Form } from "antd";
 import { UserOutlined, SafetyCertificateOutlined } from "@ant-design/icons";
-import { useHistory } from "react-router-dom";
+//import { useHistory } from "react-router-dom";
 
 const app_id = "737A31DB-7B9A-7085-FFC4-3471C6A66300";
 const api_key = "7BE2CF34-EECF-4F33-B5AB-98125A2022D4";
@@ -18,7 +18,7 @@ const css = {
 };
 
 export default function Contact() {
-  const history = useHistory();
+  //const history = useHistory();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,6 +35,7 @@ export default function Contact() {
     console.log(values);
     setLoading(true);
     setError(false);
+    setRegister(false);
 
     try {
       const xhr = await fetch(api, {
@@ -45,7 +46,6 @@ export default function Contact() {
         },
       });
 
-      isMounted.current && setLoading(false);
       const res = await xhr.json();
       console.log(res);
 
@@ -62,12 +62,13 @@ export default function Contact() {
       console.log(e);
       isMounted.current && setError("Connection error, check your internet");
     }
+    isMounted.current && setLoading(false);
   };
 
   return (
     <>
-      {error && !isRegister && <Alert type="error" message={error} banner />}
-      {isRegister && !error && (
+      {error && <Alert type="error" message={error} banner />}
+      {isRegister && (
         <Alert type="success" message="Successful login!" banner />
       )}
 

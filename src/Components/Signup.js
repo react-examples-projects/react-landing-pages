@@ -35,6 +35,7 @@ export default function Contact() {
     console.log(values);
     setLoading(true);
     setError(false);
+    setRegister(false);
 
     try {
       const xhr = await fetch(api, {
@@ -45,7 +46,6 @@ export default function Contact() {
         },
       });
 
-      isMounted.current && setLoading(false);
       const res = await xhr.json();
       console.log(res);
 
@@ -62,12 +62,13 @@ export default function Contact() {
       console.log(e);
       isMounted.current && setError("Connection error, check your internet");
     }
+    isMounted.current && setLoading(false);
   };
 
   return (
     <>
-      {error && !isRegister && <Alert type="error" message={error} banner />}
-      {isRegister && !error && (
+      {error && <Alert type="error" message={error} banner />}
+      {isRegister && (
         <Alert type="success" message="User registrered!" banner />
       )}
 
