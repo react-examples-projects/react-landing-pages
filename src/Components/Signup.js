@@ -1,6 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Button, Tooltip, Input, Alert, Typography, Form } from "antd";
-import { UserOutlined, SafetyCertificateOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 
 const app_id = "737A31DB-7B9A-7085-FFC4-3471C6A66300";
@@ -12,8 +10,12 @@ const css = {
   form: {
     marginTop: "1rem",
     width: "100%",
-    maxWidth: "300px",
+    maxWidth: "350px",
     margin: "15rem auto auto auto",
+  },
+
+  title: {
+    marginBottom: "1rem",
   },
 };
 
@@ -26,13 +28,14 @@ export default function Contact() {
   const [isLoading, setLoading] = useState(false);
   const isMounted = useRef();
   const [isRegister, setRegister] = useState(false);
+
   useEffect(() => {
     isMounted.current = true;
     return () => (isMounted.current = false);
   });
 
-  const handleSubmit = async (values) => {
-    console.log(values);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setLoading(true);
     setError(false);
     setRegister(false);
@@ -40,7 +43,7 @@ export default function Contact() {
     try {
       const xhr = await fetch(api, {
         method: "POST",
-        body: JSON.stringify(values),
+        body: JSON.stringify({ email, password }),
         headers: {
           "Content-Type": "application/json; charset=utf-8",
         },
@@ -67,67 +70,41 @@ export default function Contact() {
 
   return (
     <>
-      {error && <Alert type="error" message={error} banner />}
-      {isRegister && (
-        <Alert type="success" message="User registrered!" banner />
-      )}
+      {error && <h5>{error}</h5>}
+      {isRegister && <h5>{"User registrered!"}</h5>}
 
-      <Form
-        action="/"
-        onFinish={handleSubmit}
-        style={css.form}
-        initialValues={{ remember: true }}
-      >
-        <Typography.Title level={2}>Register your account</Typography.Title>
-        <Form.Item
-          name="email"
-          rules={[{ required: true, message: "Please input your username!" }]}
-        >
-          <Input
+      <form action="/" onSubmit={handleSubmit} style={css.form}>
+        <h1>Register your account</h1>
+        <div>
+          <input
             type="email"
             name="email"
             id="email"
             value={email}
-            prefix={<UserOutlined />}
             onChange={({ target }) => {
               setEmail(target.value);
             }}
             placeholder="Email"
           />
-        </Form.Item>
+        </div>
 
-        <Form.Item
-          name="password"
-          rules={[{ required: true, message: "Please input your password!" }]}
-        >
-          <Input
+        <div>
+          <input
             type="password"
             name="password"
             id="password"
             value={password}
-            prefix={<SafetyCertificateOutlined />}
             onChange={({ target }) => {
               setPassword(target.value);
             }}
             placeholder="Password"
           />
-        </Form.Item>
+        </div>
 
-        <Tooltip title="Enviar los datos">
-          <Button
-            type="danger"
-            style={{ marginTop: "1rem" }}
-            //  loading={true}
-            block
-            htmlType="submit"
-            //shape="round"
-            loading={isLoading}
-          >
-            Registrar
-            {/* <CheckOutlined /> */}
-          </Button>
-        </Tooltip>
-      </Form>
+        <button type="submit" style={{ marginTop: "1rem" }}>
+          Registrar
+        </button>
+      </form>
     </>
   );
 }
