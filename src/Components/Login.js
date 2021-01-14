@@ -106,7 +106,7 @@ export default function Contact() {
           login with your account
         </h3>
 
-        <Form.Group>
+        <Form.Group controlId="email">
           <Form.Control
             type="email"
             name="login"
