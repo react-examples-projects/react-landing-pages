@@ -9,6 +9,15 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Media from "react-bootstrap/Media";
+import Accordion from "react-bootstrap/Accordion";
+import Badge from "react-bootstrap/Badge";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import ButtonToolbar from "react-bootstrap/ButtonToolbar";
+import Card from "react-bootstrap/Card";
+import Dropdown from "react-bootstrap/Dropdown";
+import SplitButton from "react-bootstrap/SplitButton";
+import DropdownButton from "react-bootstrap/DropdownButton";
 
 // ¡Comienza a cargar los datos con antelación!
 const resource = fetchProfileData();
@@ -33,14 +42,29 @@ export default function ProfilePage() {
     <Container>
       <ErrorBoundary>
         <div className="mt-2 mb-5">
-          <Link to="/signup" style={{ marginRight: "1rem" }}>
+          <Link
+            to="/signup"
+            style={{ marginRight: "1rem" }}
+            className="text-reset"
+          >
             <Button>Registrarse</Button>
           </Link>
 
-          <Link to="/login" style={{ marginRight: "1rem" }}>
-            <Button>Iniciar sesión</Button>
+          <Link
+            to="/login"
+            style={{ marginRight: "1rem" }}
+            className="text-reset"
+          >
+            <Button variant="outline-primary">Iniciar sesión</Button>
           </Link>
         </div>
+
+        <Breadcrumb>
+          <Breadcrumb.Item active>Home</Breadcrumb.Item>
+          <Breadcrumb.Item href="/about" target="_blank">
+            About us
+          </Breadcrumb.Item>
+        </Breadcrumb>
 
         <ErrorBoundary message="Error en ProfileDetails">
           <Suspense fallback={<LoadingProfilePage />}>
@@ -53,9 +77,116 @@ export default function ProfilePage() {
             </ErrorBoundary>
           </Suspense>
         </ErrorBoundary>
+
         <Button onClick={update} style={{ marginTop: "2rem" }}>
           Cambiar estado
         </Button>
+
+        <Accordion className="mt-3" defaultActiveKey="0">
+          <Accordion.Toggle as={Button} variant="link" eventKey="0">
+            Ver más...
+          </Accordion.Toggle>
+
+          <Accordion.Collapse eventKey="0">
+            <p className="mt-2">
+              <small>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Inventore id magni iure praesentium recusandae, soluta rem error
+                dolore corporis officia aut neque, placeat quia, nam eius esse
+                minima quos facilis.
+              </small>
+            </p>
+          </Accordion.Collapse>
+        </Accordion>
+
+        <ButtonToolbar>
+          <ButtonGroup className="mt-3 mr-2" size="sm" vertical>
+            <Button variant="warning">Boton 1</Button>
+            <Button variant="danger">Buscar</Button>
+          </ButtonGroup>
+
+          <ButtonGroup className="mt-3" size="sm" vertical>
+            <Button variant="warning">Boton 1</Button>
+            <Button variant="danger">Buscar</Button>
+          </ButtonGroup>
+        </ButtonToolbar>
+
+        <Dropdown className="mt-3" drop="up">
+          <Dropdown.Toggle variant="link" id="drop1">Opciones</Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item>Opcion 1</Dropdown.Item>
+            <Dropdown.Item>Opcion 2</Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item>Opcion 3</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+
+        <SplitButton variant="dark" title="Mas opciones" className="mt-3">
+          <Dropdown.Item>Opcion 1</Dropdown.Item>
+          <Dropdown.Item>Opcion 2</Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item>Opcion 3</Dropdown.Item>
+        </SplitButton>
+
+        <DropdownButton variant="success" title="Descargas" className="mt-3">
+          <Dropdown.Item>Opcion</Dropdown.Item>
+          <Dropdown.Item>Opcion</Dropdown.Item>
+          <Dropdown.Item>Opcion</Dropdown.Item>
+          <Dropdown.Item>Opcion</Dropdown.Item>
+        </DropdownButton>
+
+        <Card body className="mt-4">
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, est.
+          </p>
+        </Card>
+
+        <Row className="mt-4">
+          <Col>
+            <Card border="primary">
+              <Card.Header>Lorem, ipsum.</Card.Header>
+              <Card.Img src="https://picsum.photos/200/100" />
+              <Card.Body>
+                <Card.Title>Lorem, ipsum dolor.</Card.Title>
+                <Card.Subtitle className="mb-4 text-muted">
+                  Lorem ipsum dolor sit.
+                </Card.Subtitle>
+                <Card.Text>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Quaerat, eum?
+                </Card.Text>
+              </Card.Body>
+              <Card.Footer>
+                <Button variant="link" href="#list-users">
+                  Ver listas
+                </Button>
+              </Card.Footer>
+            </Card>
+          </Col>
+
+          <Col>
+            <Card border="success">
+              <Card.Header>
+                <Card.Title>Lorem, ipsum dolor.</Card.Title>
+                <Card.Subtitle className="text-muted">
+                  Lorem ipsum dolor sit amet consectetur.
+                </Card.Subtitle>
+              </Card.Header>
+              <Card.Body>
+                <Card.Text>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Voluptatum, distinctio.
+                </Card.Text>
+              </Card.Body>
+              <Card.Footer className="bg-transparent">
+                <Button variant="success" block>
+                  Accept
+                </Button>
+              </Card.Footer>
+            </Card>
+          </Col>
+        </Row>
 
         <Row style={{ marginTop: "3rem" }}>
           <Col>
@@ -135,9 +266,9 @@ function ProfileDetails() {
 function ProfileTimeline() {
   // Intenta leer las publicaciones, aunque puede que no se hayan cargado aún
   const postsArray = resource.posts.read();
-  const render = (post) => {
+  const render = (post, i) => {
     return (
-      <Media as="li" className="mb-2">
+      <Media as="li" className="mb-2" key={i}>
         <img
           width={40}
           height={40}
@@ -146,7 +277,12 @@ function ProfileTimeline() {
           alt={post.name}
         />
         <Media.Body>
-          <p>{post.name}</p>
+          <p className="float-left mr-1">{post.name}</p>
+          {i % 2 === 0 && (
+            <Badge pill variant="success">
+              Nuevo
+            </Badge>
+          )}
         </Media.Body>
       </Media>
     );

@@ -13,7 +13,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
- .logo {
+.logo {
   height: 32px;
   margin: 16px;
   background: rgba(255, 255, 255, 0.3);
@@ -21,4 +21,8 @@ body {
 
 .site-layout .site-layout-background {
   background: #fff;
+}
+
+.title {
+  font-family: "Alfa Slab One", cursive;
 }
