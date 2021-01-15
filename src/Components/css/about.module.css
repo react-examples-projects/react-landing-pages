@@ -1,0 +1,109 @@
+* {
+  color: #fff;
+}
+
+html,
+body {
+  font-size: 16px;
+}
+
+body {
+  background: linear-gradient(85deg, #09015f57, #060049d2),
+    url("../img//66133776677267.5c7084b8f18aa.jpg");
+  background-size: 100% 100%;
+  min-height: 100vh;
+  overflow-y: hidden;
+}
+
+.brand {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.aboutContainer {
+  margin-top: 2.8rem;
+}
+
+.titles {
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  font-size: 3rem;
+}
+
+.box {
+  text-align: center;
+  padding: 1rem 1.8rem;
+  border-radius: 30px;
+  display: inline-block;
+  position: absolute;
+  z-index: 2;
+}
+
+.box::before {
+  content: "";
+  display: block;
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(25deg);
+  border-radius: 30px;
+}
+
+.box:nth-child(2) {
+  background: #f88f01;
+}
+
+.box:nth-child(2)::before {
+  background: #f88d0180;
+}
+
+.box:nth-child(3) {
+  background: #fd3a69;
+}
+
+.box:nth-child(3)::before {
+  background: #fd3a6798;
+}
+
+.box:nth-child(4) {
+  background: #892cdc;
+}
+
+.box:nth-child(4)::before {
+  background: #8a2cdc83;
+}
+
+.box > p {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.description {
+  margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 992px) {
+  body {
+    background-size: cover;
+  }
+
+  .box {
+    position: relative;
+    top: unset !important;
+    left: unset !important;
+  }
+
+  .box:not(:last-child) {
+    margin-right: 2rem;
+  }
+}
+
+@media screen and (max-width: 790px) {
+  html,
+  body {
+    font-size: 13px;
+  }
+}

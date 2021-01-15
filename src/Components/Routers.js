@@ -5,7 +5,7 @@ import { LoadingSignup, LoadingMain } from "./LoadingsComponents";
 const ProfilePageLazy = lazy(() => import("./Main"));
 const SignupLazy = lazy(() => import("./Signup"));
 const LoginLazy = lazy(() => import("./Login"));
-const AboutLazy = lazy(() => import("./About"));
+const AboutLazy = lazy(() => import("./About/About"));
 const ProductLazy = lazy(() => import("./Product"));
 
 export default function Routers() {
