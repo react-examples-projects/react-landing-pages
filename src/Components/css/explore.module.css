@@ -20,6 +20,10 @@ body {
   background-size: cover;
 }
 
+label {
+  margin: 0;
+}
+
 .brand {
   font-size: 1.6rem;
 }
@@ -72,13 +76,35 @@ body {
   cursor: pointer;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 768px) {
   body {
     overflow: auto;
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .rotate {
     transform: rotate(0);
+  }
+
+  .menuToggler,
+  .socialMedia {
+    margin: 0;
+  }
+
+  .pagination,
+  .socialMedia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .inputGroup {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .title {
+    font-size: 3rem;
   }
 }

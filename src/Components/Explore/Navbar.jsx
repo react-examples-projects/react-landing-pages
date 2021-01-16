@@ -6,11 +6,12 @@ import {
   menuImg,
   menuToggler,
   socialMedia,
+  pagination,
 } from "../css/explore.module.css";
 
 export default function NavbarMenu({ toggleMenu, isOpen }) {
   return (
-    <Nav className="h-100 justify-content-md-center justify-content-lg-center align-items-md-start align-items-lg-start">
+    <Nav className="h-100  justify-content-around align-items-md-center justify-content-md-center justify-content-lg-center align-items-md-start align-items-lg-start">
       <div className={menuToggler}>
         <label htmlFor="toggler" onClick={toggleMenu}>
           <img
@@ -20,7 +21,7 @@ export default function NavbarMenu({ toggleMenu, isOpen }) {
           />
         </label>
       </div>
-      <div className="">
+      <div className={pagination}>
         <Nav.Link className={`text-uppercase text-reset ${rotate}`}>
           <div className="d-flex align-items-center">
             <span className="mr-2">next</span>
@@ -28,7 +29,9 @@ export default function NavbarMenu({ toggleMenu, isOpen }) {
           </div>
         </Nav.Link>
 
-        <Nav.Link className={`mt-5 text-uppercase text-reset ${rotate}`}>
+        <Nav.Link
+          className={`mt-0 mt-md-5 mt-lg-5 text-uppercase text-reset ${rotate}`}
+        >
           <div className="d-flex align-items-center">
             <i className="fa fa-long-arrow-alt-left" />
             <span className="ml-2">prev</span>
@@ -38,19 +41,19 @@ export default function NavbarMenu({ toggleMenu, isOpen }) {
 
       <div className={socialMedia}>
         <Nav.Link className="text-center">
-          <i className="fa fa-facebook-f mb-2" />
+          <i className="fa fa-facebook-f mb-md-2 mb-lg-2" />
         </Nav.Link>
 
         <Nav.Link className="text-center">
-          <i className="fa fa-pinterest-p mb-2" />
+          <i className="fa fa-pinterest-p mb-md-2 mb-lg-2" />
         </Nav.Link>
 
         <Nav.Link className="text-center">
-          <i className="fa fa-twitter mb-2" />
+          <i className="fa fa-twitter mb-md-2 mb-lg-2" />
         </Nav.Link>
 
         <Nav.Link className="text-center">
-          <i className="fa fa-instagram mb-4" />
+          <i className="fa fa-instagram  mb-md-4 mb-lg-2" />
         </Nav.Link>
 
         <Nav.Link className={`text-uppercase text-reset ${rotate}`}>

@@ -6,10 +6,8 @@ import Navbar from "react-bootstrap/Navbar";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
-
-
 import NavbarMenu from "./Navbar";
-import { brand, main, title, input, btn } from "../css/explore.module.css";
+import { brand, main, title, input, inputGroup, btn } from "../css/explore.module.css";
 
 export default function Explorer() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +16,7 @@ export default function Explorer() {
   return (
     <main role="main" className={main}>
       <Row>
-        <Col md={1} lg={1}>
+        <Col sm={12} md={1} lg={1}>
           <NavbarMenu {...{ toggleMenu, isOpen }} />
         </Col>
         <Col md={11} lg={11}>
@@ -38,7 +36,7 @@ export default function Explorer() {
                 Accusantium, hic.
               </p>
 
-              <InputGroup className="w-50" size="lg">
+              <InputGroup className={`${inputGroup} w-50`} size="lg">
                 <FormControl className={`${input} shadow-lg`} />
                 <Button className={`${btn} ml-3`}>
                   Let's go!
