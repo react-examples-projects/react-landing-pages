@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+  color: #fff;
+}
+
+html,
+body {
+  font-size: 16px;
+  min-height: 100vh;
+  overflow-y: hidden;
+}
+
+body {
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.404),
+      rgba(0, 0, 0, 0.876)
+    ),
+    url("../img/bg.jpg");
+  background-size: cover;
+}
+
+.brand {
+  font-size: 1.6rem;
+}
+
+.main {
+  height: 100vh;
+  margin-top: 3rem;
+}
+
+.title {
+  margin-top: 7rem;
+  font-size: 3.8rem;
+}
+
+.input {
+  border-radius: 12px;
+  border-color: rgba(206, 212, 218, 0.561);
+}
+
+.btn {
+  background: rgb(226, 147, 0);
+  border: 0 !important;
+}
+
+.btn:focus {
+  box-shadow: none !important;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+  background: rgb(243, 158, 0) !important;
+}
+
+.rotate {
+  transform: rotate(90deg);
+}
+
+.menuToggler {
+  margin-bottom: 11rem;
+}
+
+.socialMedia {
+  margin-top: 11rem;
+}
+
+.menuImg {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+  body {
+    overflow: auto;
+    font-size: 13px;
+  }
+
+  .rotate {
+    transform: rotate(0);
+  }
+}

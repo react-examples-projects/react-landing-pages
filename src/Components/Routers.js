@@ -6,6 +6,7 @@ const ProfilePageLazy = lazy(() => import("./Main"));
 const SignupLazy = lazy(() => import("./Signup"));
 const LoginLazy = lazy(() => import("./Login"));
 const AboutLazy = lazy(() => import("./About/About"));
+const ExploreLazy = lazy(() => import("./Explore/Explore"));
 const ProductLazy = lazy(() => import("./Product"));
 
 export default function Routers() {
@@ -39,6 +40,12 @@ export default function Routers() {
         <Route exact path="/product">
           <Suspense fallback={<h4>Cargando ...</h4>}>
             <ProductLazy />
+          </Suspense>
+        </Route>
+
+        <Route exact path="/explore">
+          <Suspense fallback={<h4>Cargando ...</h4>}>
+            <ExploreLazy />
           </Suspense>
         </Route>
       </Switch>
