@@ -76,6 +76,48 @@ label {
   cursor: pointer;
 }
 
+.menuImgBlack {
+  filter: brightness(0.1);
+}
+
+.hoverLink:hover,
+.hoverLink:hover span,
+.hoverLink:hover i {
+  color: rgb(255, 240, 27);
+}
+
+.menu {
+  padding: 6rem;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.menuNav {
+  margin-top: 4rem;
+}
+
+.menuNav > a {
+  display: block;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  background: #cc2b5e;
+  background: -webkit-linear-gradient(to right, #753a88, #cc2b5e);
+  background: linear-gradient(to right, #753a88, #cc2b5e);
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 768px) {
   body {
     overflow: auto;

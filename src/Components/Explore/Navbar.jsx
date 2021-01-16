@@ -7,6 +7,7 @@ import {
   menuToggler,
   socialMedia,
   pagination,
+  hoverLink,
 } from "../css/explore.module.css";
 
 export default function NavbarMenu({ toggleMenu, isOpen }) {
@@ -22,7 +23,9 @@ export default function NavbarMenu({ toggleMenu, isOpen }) {
         </label>
       </div>
       <div className={pagination}>
-        <Nav.Link className={`text-uppercase text-reset ${rotate}`}>
+        <Nav.Link
+          className={`text-uppercase text-reset ${rotate} ${hoverLink}`}
+        >
           <div className="d-flex align-items-center">
             <span className="mr-2">next</span>
             <i className="fa fa-long-arrow-alt-right" />
@@ -30,7 +33,7 @@ export default function NavbarMenu({ toggleMenu, isOpen }) {
         </Nav.Link>
 
         <Nav.Link
-          className={`mt-0 mt-md-5 mt-lg-5 text-uppercase text-reset ${rotate}`}
+          className={`mt-0 mt-md-5 mt-lg-5 text-uppercase text-reset ${rotate} ${hoverLink}`}
         >
           <div className="d-flex align-items-center">
             <i className="fa fa-long-arrow-alt-left" />
@@ -40,23 +43,23 @@ export default function NavbarMenu({ toggleMenu, isOpen }) {
       </div>
 
       <div className={socialMedia}>
-        <Nav.Link className="text-center">
+        <Nav.Link className={`text-center ${hoverLink}`}>
           <i className="fa fa-facebook-f mb-md-2 mb-lg-2" />
         </Nav.Link>
 
-        <Nav.Link className="text-center">
+        <Nav.Link className={`text-center ${hoverLink}`}>
           <i className="fa fa-pinterest-p mb-md-2 mb-lg-2" />
         </Nav.Link>
 
-        <Nav.Link className="text-center">
+        <Nav.Link className={`text-center ${hoverLink}`}>
           <i className="fa fa-twitter mb-md-2 mb-lg-2" />
         </Nav.Link>
 
-        <Nav.Link className="text-center">
+        <Nav.Link className={`text-center ${hoverLink}`}>
           <i className="fa fa-instagram  mb-md-4 mb-lg-2" />
         </Nav.Link>
 
-        <Nav.Link className={`text-uppercase text-reset ${rotate}`}>
+        <Nav.Link className={`text-uppercase text-reset ${rotate} ${hoverLink}`}>
           <span className="ml-2">share</span>
         </Nav.Link>
       </div>

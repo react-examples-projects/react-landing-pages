@@ -7,14 +7,24 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
 import NavbarMenu from "./Navbar";
-import { brand, main, title, input, inputGroup, btn } from "../css/explore.module.css";
+import Menu from "./Menu";
 
+import {
+  brand,
+  main,
+  title,
+  input,
+  inputGroup,
+  btn,
+} from "../css/explore.module.css";
 export default function Explorer() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
     <main role="main" className={main}>
+      {isOpen && <Menu {...{ toggleMenu }} />}
+
       <Row>
         <Col sm={12} md={1} lg={1}>
           <NavbarMenu {...{ toggleMenu, isOpen }} />
