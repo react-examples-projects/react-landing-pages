@@ -6,11 +6,43 @@ import Col from "react-bootstrap/Col";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import Accordion from "react-bootstrap/Accordion";
-
+import InputGroup from "react-bootstrap/InputGroup";
+import Figure from "react-bootstrap/Figure";
+import Jumbotron from "react-bootstrap/Jumbotron";
+import LisGroup from "react-bootstrap/ListGroup";
+import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 
 export default function Product() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [perfil, setPerfil] = useState(null);
+  const [isFormValid, setFormValid] = useState(false);
+  const [isOpenFormLong, setOpenFormLong] = useState(false);
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
+  const ModalTest = () => (
+    <Modal
+      show={isModalOpen}
+      onHide={toggleModal}
+      backdrop="static"
+      centered
+      keyboard={false}
+      size="lg"
+    >
+      <Modal.Header closeButton>
+        <Modal.Title>Título</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Reprehenderit, necessitatibus.
+        </p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="success">Crear</Button>
+        <Button variant="danger">Eliminar</Button>
+      </Modal.Footer>
+    </Modal>
+  );
   const handlePerfilChange = ({ target }) => {
     const file = target.files[0];
     setPerfil(URL.createObjectURL(file));
@@ -20,47 +52,284 @@ export default function Product() {
     console.log(e.target.value);
   };
 
+  const handleSubmit = (e) => {
+    const isValid = e.target.checkValidity();
+    if (!isValid) {
+      setFormValid(false);
+      e.preventDefault();
+    }
+    setFormValid(true);
+  };
+
   return (
     <Container className="mt-5">
-      <Form className="mt-1 mb-4">
-        <Form.Group controlId="ex1">
-          <Form.Label>Etiqueta label</Form.Label>
-          <Form.Control type="email" placeholder="control text" required />
-        </Form.Group>
+      <ModalTest />
+      <Button onClick={toggleModal}>Abrir modal</Button>
+      <Jumbotron>
+        <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+        <p className="lead mt-3">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo,
+          reiciendis?
+        </p>
+      </Jumbotron>
+      <Row>
+        <Col>
+          <Figure className="w-100">
+            <Figure.Image
+              fluid
+              className="w-100"
+              src="https://steamuserimages-a.akamaihd.net/ugc/862858849824053740/B2EFDD79C79D2E1E8D91FDA2976A96C48723F792/"
+            />
+            <Figure.Caption>
+              Lorem ipsum dolor sit amet consectetur.
+            </Figure.Caption>
+          </Figure>
+        </Col>
 
-        <Form.Group controlId="ex2">
-          <Form.Label>fecha</Form.Label>
-          <Form.Control type="date" required />
-        </Form.Group>
+        <Col>
+          <Figure className="w-100">
+            <Figure.Image
+              fluid
+              className="w-100"
+              src="https://steamuserimages-a.akamaihd.net/ugc/862858849824053740/B2EFDD79C79D2E1E8D91FDA2976A96C48723F792/"
+            />
+            <Figure.Caption>
+              Lorem ipsum dolor sit amet consectetur.
+            </Figure.Caption>
+          </Figure>
+        </Col>
 
-        <Form.Group controlId="ex2">
-          <Form.Label>semana</Form.Label>
-          <Form.Control type="week" required />
-        </Form.Group>
+        <Col>
+          <Figure className="w-100">
+            <Figure.Image
+              fluid
+              className="w-100"
+              src="https://steamuserimages-a.akamaihd.net/ugc/862858849824053740/B2EFDD79C79D2E1E8D91FDA2976A96C48723F792/"
+            />
+            <Figure.Caption>
+              Lorem ipsum dolor sit amet consectetur.
+            </Figure.Caption>
+          </Figure>
+        </Col>
 
-        <Form.Group controlId="ex2">
-          <Form.Label>mes</Form.Label>
-          <Form.Control type="month" required />
-        </Form.Group>
+        <Col>
+          <Figure className="w-100">
+            <Figure.Image
+              fluid
+              className="w-100"
+              src="https://steamuserimages-a.akamaihd.net/ugc/862858849824053740/B2EFDD79C79D2E1E8D91FDA2976A96C48723F792/"
+            />
+            <Figure.Caption>
+              Lorem ipsum dolor sit amet consectetur.
+            </Figure.Caption>
+          </Figure>
+        </Col>
+      </Row>
 
-        <Form.Group controlId="ex2">
-          <Form.Label>Rango</Form.Label>
-          <Form.Control type="range" onChange={handleChange} required />
-        </Form.Group>
+      <Row className="my-4">
+        <Col>
+          <LisGroup variant="flush">
+            <LisGroup.Item action href="#d" variant="primary">
+              sldfkdslflfdlkdsf
+            </LisGroup.Item>
+            <LisGroup.Item variant="danger">sldfkdslflfdlkdsf</LisGroup.Item>
+            <LisGroup.Item variant="secondary">sldfkdslflfdlkdsf</LisGroup.Item>
+          </LisGroup>
+        </Col>
+        <Col>
+          <LisGroup horizontal>
+            <LisGroup.Item action href="#d">
+              sldfkdslflfdlkdsf
+            </LisGroup.Item>
+            <LisGroup.Item>sldfkdslflfdlkdsf</LisGroup.Item>
+            <LisGroup.Item>sldfkdslflfdlkdsf</LisGroup.Item>
+          </LisGroup>
+          <LisGroup horizontal>
+            <LisGroup.Item action href="#d">
+              sldfkdslflfdlkdsf
+            </LisGroup.Item>
+            <LisGroup.Item>sldfkdslflfdlkdsf</LisGroup.Item>
+            <LisGroup.Item>sldfkdslflfdlkdsf</LisGroup.Item>
+          </LisGroup>
+        </Col>
+      </Row>
 
-        <Form.Group controlId="ex2">
-          <Form.Label>textarea</Form.Label>
-          <Form.Control as="textarea" onChange={handleChange} rows="3" required />
-        </Form.Group>
+      <Accordion>
+        <Accordion.Toggle
+          id="formLong"
+          eventKey="4"
+          as={Button}
+          variant="warning"
+          onClick={() => setOpenFormLong(!isOpenFormLong)}
+        >
+          Formulario largo
+          <i
+            className={`fa fa-caret-${isOpenFormLong ? "down" : "right"} ml-2`}
+          />
+        </Accordion.Toggle>
 
-        <Form.Group controlId="ex2">
-          <Form.Label>Files</Form.Label>
-          <Form.File onChange={handleChange} required />
-        </Form.Group>
+        <Accordion.Collapse eventKey="4">
+          <Form
+            className="mt-1 mb-4"
+            onSubmit={handleSubmit}
+            noValidate
+            validated={isFormValid}
+          >
+            <Row>
+              <Col>
+                <Form.Group controlId="ex1">
+                  <Form.Label>Etiqueta label</Form.Label>
 
-        <Button type="submit">Enviar</Button>
-      </Form>
+                  <InputGroup size="sm">
+                    <InputGroup.Prepend>
+                      <InputGroup.Text>
+                        <i className="fa fa-user" />
+                      </InputGroup.Text>
+                      <InputGroup.Text>@</InputGroup.Text>
+                    </InputGroup.Prepend>
+                    <Form.Control
+                      type="email"
+                      placeholder="control text"
+                      required
+                    />
+                  </InputGroup>
 
+                  <Form.Text className="text-success">
+                    Lorem ipsum dolor sit.
+                  </Form.Text>
+                </Form.Group>
+              </Col>
+
+              <Col>
+                <Form.Group controlId="ex2">
+                  <Form.Label>fecha</Form.Label>
+                  <InputGroup>
+                    <InputGroup.Prepend>
+                      <InputGroup.Text>
+                        <i className="fa fa-calendar-week" />
+                      </InputGroup.Text>
+                    </InputGroup.Prepend>
+
+                    <Form.Control type="date" required />
+                  </InputGroup>
+                  <Form.Text muted>
+                    Lorem ipsum dolor sit amet consectetur.
+                  </Form.Text>
+                </Form.Group>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col>
+                <Form.Group controlId="ex4">
+                  <Form.Label>mes</Form.Label>
+
+                  <InputGroup size="lg">
+                    <Form.Control type="month" required isValid />
+                    <InputGroup.Append>
+                      <InputGroup.Text>
+                        <i className="fa fa-calendar-alt" />
+                      </InputGroup.Text>
+                    </InputGroup.Append>
+                  </InputGroup>
+
+                  <Form.Control.Feedback tooltip>
+                    Lorem ipsum dolor sit amet.
+                  </Form.Control.Feedback>
+                </Form.Group>
+              </Col>
+
+              <Col>
+                <Form.Group controlId="ex5">
+                  <Form.Label>Rango</Form.Label>
+                  <Form.Control
+                    type="range"
+                    onChange={handleChange}
+                    required
+                    custom
+                  />
+                </Form.Group>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col>
+                <Form.Group controlId="ex6">
+                  <Form.Label>textarea</Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    onChange={handleChange}
+                    rows="3"
+                    required
+                  />
+                </Form.Group>
+              </Col>
+
+              <Col>
+                <Form.Group controlId="ex7">
+                  <Form.Label>Files</Form.Label>
+                  <Form.File onChange={handleChange} required />
+                </Form.Group>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col>
+                <Form.Group controlId="ex8" as={Row}>
+                  <Col>
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control
+                      //readOnly
+                      // plaintext
+                      type="text"
+                      placeholder="zNareak"
+                      defaultValue="zNareak"
+                      required
+                    />
+                  </Col>
+
+                  <Col>
+                    <Form.Check
+                      type="checkbox"
+                      label="Matener"
+                      id="dwe#E_#"
+                      custom
+                    />
+                    <Form.Check
+                      type="radio"
+                      label="Ocultar"
+                      id="dwe#E4_#"
+                      custom
+                    />
+                  </Col>
+                </Form.Group>
+              </Col>
+
+              <Col>
+                <Form.Group controlId="ex3">
+                  <Form.Label>semana</Form.Label>
+                  <Form.Control type="week" required />
+                </Form.Group>
+              </Col>
+            </Row>
+
+            <Form.Group>
+              <Form.Check
+                id="sons"
+                type="checkbox"
+                label="Tiene hijos?"
+                isValid
+                custom
+              />
+              <Form.Check id="house" type="radio" label="Tiene Casa?" custom />
+              <Form.Check id="theme" type="switch" label="Modo oscuro" />
+            </Form.Group>
+            <Button type="submit" block>
+              Enviar
+            </Button>
+          </Form>
+        </Accordion.Collapse>
+      </Accordion>
       <Accordion>
         <Accordion.Toggle as={Button} variant="link" eventKey="0">
           Dropdowns
@@ -87,6 +356,7 @@ export default function Product() {
           </>
         </Accordion.Collapse>
         <br />
+
         <Accordion.Toggle as={Button} variant="link" eventKey="1">
           Mostrar formulario
         </Accordion.Toggle>
