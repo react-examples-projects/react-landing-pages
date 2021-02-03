@@ -11,6 +11,8 @@ import Figure from "react-bootstrap/Figure";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import LisGroup from "react-bootstrap/ListGroup";
 import Modal from "react-bootstrap/Modal";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 import { useState } from "react";
 
 export default function Product() {
@@ -64,7 +66,48 @@ export default function Product() {
   return (
     <Container className="mt-5">
       <ModalTest />
+
+      <Navbar
+        collapseOnSelect
+        className="mb-3"
+        bg="dark"
+        variant="dark"
+        expand="lg"
+      >
+        <Navbar.Brand>
+          <h2 className="m-0">Logo</h2>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="" />
+        <Navbar.Collapse>
+          <Nav className="ml-auto">
+            <Nav.Item>
+              <Nav.Link href="#">Opcion1</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="#">Opcion2</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="#">Opcion3</Nav.Link>
+            </Nav.Item>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+
       <Button onClick={toggleModal}>Abrir modal</Button>
+      <Nav className="my-5" variant="pills" justify fill>
+        <Nav.Item as={Nav.Link} eventKey="op1">
+          Opcion 1
+        </Nav.Item>
+        <Nav.Item as={Nav.Link} eventKey="op2">
+          Opcion 2
+        </Nav.Item>
+        <Nav.Item as={Nav.Link} eventKey="op3">
+          Opcion 3
+        </Nav.Item>
+        <Nav.Item as={Nav.Link} eventKey="op4">
+          Opcion 4
+        </Nav.Item>
+      </Nav>
       <Jumbotron>
         <h3>Lorem ipsum dolor sit amet consectetur.</h3>
         <p className="lead mt-3">
