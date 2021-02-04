@@ -8,6 +8,7 @@ const LoginLazy = lazy(() => import("./Login"));
 const AboutLazy = lazy(() => import("./About/About"));
 const ExploreLazy = lazy(() => import("./Explore/Explore"));
 const ProductLazy = lazy(() => import("./Product"));
+const StartLazy = lazy(() => import("./Start/Start"));
 
 export default function Routers() {
   return (
@@ -46,6 +47,12 @@ export default function Routers() {
         <Route exact path="/explore">
           <Suspense fallback={<h4>Cargando ...</h4>}>
             <ExploreLazy />
+          </Suspense>
+        </Route>
+
+        <Route exact path="/start">
+          <Suspense fallback={<h4>Cargando ...</h4>}>
+            <StartLazy />
           </Suspense>
         </Route>
       </Switch>
