@@ -13,6 +13,8 @@ import LisGroup from "react-bootstrap/ListGroup";
 import Modal from "react-bootstrap/Modal";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import Pagination from "react-bootstrap/Pagination";
+import ProgressBar from "react-bootstrap/ProgressBar"
 import { useState } from "react";
 
 export default function Product() {
@@ -45,6 +47,7 @@ export default function Product() {
       </Modal.Footer>
     </Modal>
   );
+
   const handlePerfilChange = ({ target }) => {
     const file = target.files[0];
     setPerfil(URL.createObjectURL(file));
@@ -73,13 +76,14 @@ export default function Product() {
         bg="dark"
         variant="dark"
         expand="lg"
+        //fixed="top"
       >
         <Navbar.Brand>
           <h2 className="m-0">Logo</h2>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="" />
-        <Navbar.Collapse>
-          <Nav className="ml-auto">
+        <Navbar.Toggle aria-controls="navbar-menu" />
+        <Navbar.Collapse id="navbar-menu">
+          <Nav className="ml-auto mr-1">
             <Nav.Item>
               <Nav.Link href="#">Opcion1</Nav.Link>
             </Nav.Item>
@@ -88,6 +92,19 @@ export default function Product() {
             </Nav.Item>
             <Nav.Item>
               <Nav.Link href="#">Opcion3</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Form inline>
+                <Form.Control
+                  type="search"
+                  name="search"
+                  placeholder="Search..."
+                />
+                <Button variant="outline-info" type="submit" className="ml-1">
+                  Buscar
+                  <i className="fa fa-search ml-2" />
+                </Button>
+              </Form>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>
@@ -108,6 +125,19 @@ export default function Product() {
           Opcion 4
         </Nav.Item>
       </Nav>
+
+      <Pagination>
+        <Pagination.First />
+        <Pagination.Ellipsis />
+        <Pagination.Item>1</Pagination.Item>
+        <Pagination.Item>2</Pagination.Item>
+        <Pagination.Item>3</Pagination.Item>
+        <Pagination.Ellipsis />
+        <Pagination.Last />
+      </Pagination>
+
+      <ProgressBar now={12} className="mb-2" striped/>
+
       <Jumbotron>
         <h3>Lorem ipsum dolor sit amet consectetur.</h3>
         <p className="lead mt-3">
@@ -373,6 +403,7 @@ export default function Product() {
           </Form>
         </Accordion.Collapse>
       </Accordion>
+
       <Accordion>
         <Accordion.Toggle as={Button} variant="link" eventKey="0">
           Dropdowns
