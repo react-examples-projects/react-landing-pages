@@ -9,6 +9,7 @@ const AboutLazy = lazy(() => import("./About/About"));
 const ExploreLazy = lazy(() => import("./Explore/Explore"));
 const ProductLazy = lazy(() => import("./Product"));
 const StartLazy = lazy(() => import("./Start/Start"));
+const MemeLazy = lazy(() => import("./Meme/MemeContainer.js"));
 
 export default function Routers() {
   return (
@@ -53,6 +54,12 @@ export default function Routers() {
         <Route exact path="/start">
           <Suspense fallback={<h4>Cargando ...</h4>}>
             <StartLazy />
+          </Suspense>
+        </Route>
+
+        <Route exact path="/meme">
+          <Suspense fallback={<h4>Cargando ...</h4>}>
+            <MemeLazy />
           </Suspense>
         </Route>
       </Switch>

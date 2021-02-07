@@ -485,6 +485,7 @@ export default function Product() {
                     perfil ||
                     "https://www.timeshighereducation.com/sites/default/files/byline_photos/anonymous-user-gravatar_0.png"
                   }
+                  alt=""
                   className="img-fluid"
                 />
               </Col>
