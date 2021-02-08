@@ -4,7 +4,17 @@ import { memo } from "react";
 function Meme({ meme }) {
   if (meme?.success) {
     return (
-      <Image src={meme.data.url} className="w-100" alt="Meme preview" fluid />
+      <>
+        <a
+          href={meme.data.url}
+          download="meme"
+          className="mb-2 d-block"
+          onClick={(e) => e.preventDefault()}
+        >
+          Descargar imágen <i className="fa fa-download ml-1 mt-3" />
+        </a>
+        <Image src={meme.data.url} className="w-100" alt="Meme preview" fluid />
+      </>
     );
   }
 

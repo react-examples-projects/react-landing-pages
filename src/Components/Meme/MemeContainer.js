@@ -8,8 +8,10 @@ import Spinner from "react-bootstrap/Spinner";
 import createMeme from "./https";
 import Meme from "./Meme";
 import MemeList from "./MemeList";
+import MemeLasts from "./MemeLasts";
 import css from "./style.module.css";
-import { Link } from "react-router-dom";
+import addLastMeme, { getAllsMemesLast } from "./helpers";
+
 export default function MemeContainer() {
   const [text0, setText0] = useState("");
   const [text1, setText1] = useState("");
@@ -18,6 +20,7 @@ export default function MemeContainer() {
   const [isLoading, setLoading] = useState(false);
   const [isValid, setValid] = useState(false);
   const cancelToken = useRef(new AbortController());
+  const memesListLast = getAllsMemesLast();
 
   const handleSubmit = async (e) => {
     const fd = new FormData(e.target);
@@ -35,9 +38,11 @@ export default function MemeContainer() {
           body: fd,
           signal: cancelToken.current.signal,
         });
+        addLastMeme(memeData.data.url);
         setLoading(false);
         setMeme(memeData);
       } catch (err) {
+        console.log(err);
         if (err.name !== "AbortError") {
           setLoading(false);
         }
@@ -51,9 +56,8 @@ export default function MemeContainer() {
 
   return (
     <Container className={css.container}>
-      <Link to="/xd">Ir a otra parte</Link>
       <Row>
-        <Col lg={8}>
+        <Col lg={9}>
           <h3 className={css.title}>Meme Generator</h3>
           <Form noValidate validated={isValid} onSubmit={handleSubmit}>
             <Form.Group id="text0">
@@ -82,9 +86,10 @@ export default function MemeContainer() {
             <Form.Group>
               <Button
                 variant="success"
-                className="rounded-0 d-flex align-items-center"
+                className="rounded-0 d-flex align-items-center justify-content-center"
                 type="submit"
                 disabled={isLoading}
+                block
               >
                 Send meme
                 {isLoading && (
@@ -101,8 +106,9 @@ export default function MemeContainer() {
           <Meme meme={meme} />
         </Col>
 
-        <Col lg={4}>
+        <Col lg={3}>
           <MemeList setMemeId={setMemeId} memeId={memeId} />
+          <MemeLasts memes={memesListLast} />
         </Col>
       </Row>
     </Container>

@@ -1,10 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 
 body {
-  color: #fff;
-  background: #0f2027;
-  background: -webkit-linear-gradient(to right, #2c5364, #203a43, #0f2027);
-  background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+  background: url("https://www.toptal.com/designers/subtlepatterns/patterns/dust_scratches.png");
 }
 
 .title {
@@ -17,4 +14,18 @@ body {
 
 .container {
   margin-top: 5rem;
+  margin-bottom: 4rem;
+}
+
+.listGroup::-webkit-scrollbar {
+  width: 10px;
+}
+
+.listGroup::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.listGroup::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.493);
+  border-radius: 3px;
 }
