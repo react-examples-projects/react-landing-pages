@@ -1,0 +1,68 @@
+body {
+  background: #eee;
+}
+
+.containerTodo {
+  max-width: 900px;
+  margin-top: 12rem;
+}
+
+.rowTodo {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.todoTask {
+  background: #cecece34;
+  margin-top: 1rem;
+  border-radius: 10px;
+}
+
+.todoNav {
+  height: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background: #36d1dc;
+  background: -webkit-linear-gradient(to bottom, #5b86e5, #36d1dc);
+  background: linear-gradient(to bottom, #5b86e5, #36d1dc);
+}
+
+.btnAddTask {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 2rem;
+  color: #fff;
+  margin: auto;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+input[type="checkbox"] {
+  z-index: 1;
+}
+
+.starFavorite {
+  transition: all 0.2s ease;
+  transform: translateY(0);
+}
+
+.starFavorite:active {
+  transform: translateY(-5px);
+}
+
+.todoNavItemCount {
+  float: right;
+  color: rgba(255, 255, 255, 0.788);
+}
+
+.btnCreateSection {
+  background: #36d1dc;
+  background: -webkit-linear-gradient(90deg, #5b86e5, #36d1dc);
+  background: linear-gradient(90deg, #5b86e5, #36d1dc);
+  border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

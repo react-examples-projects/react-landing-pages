@@ -4,7 +4,6 @@ import Image from "react-bootstrap/Image";
 import Badge from "react-bootstrap/Badge";
 import { listGroup } from "./style.module.css";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-
 import { getMemes } from "./https";
 
 export default function MemeList({ memeId, setMemeId }) {
@@ -18,7 +17,6 @@ export default function MemeList({ memeId, setMemeId }) {
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
         if (err.name !== "AbortError") {
           setLoading(false);
         }
@@ -43,7 +41,7 @@ export default function MemeList({ memeId, setMemeId }) {
         style={{ height: "500px" }}
         variant="flush"
       >
-        {memesId.map(({ id, name, url }) => {
+        {memesId?.map(({ id, name, url }) => {
           return (
             <ListGroup.Item
               key={id}

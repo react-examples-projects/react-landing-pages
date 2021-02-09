@@ -4,6 +4,9 @@ import { listGroup } from "./style.module.css";
 import { memo } from "react";
 
 function MemeLasts({ memes }) {
+  if (!memes?.length) {
+    return null;
+  }
   return (
     <>
       <h6 className="mt-5 mb-3">Last five memes created:</h6>
@@ -12,7 +15,7 @@ function MemeLasts({ memes }) {
         variant="flush"
         style={{ height: "500px" }}
       >
-        {memes?.map((memeUrl) => { 
+        {memes?.map((memeUrl) => {
           return (
             <ListGroup.Item className="bg-transparent pl-0" key={memeUrl}>
               <Image

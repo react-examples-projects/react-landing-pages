@@ -10,10 +10,11 @@ const ExploreLazy = lazy(() => import("./Explore/Explore"));
 const ProductLazy = lazy(() => import("./Product"));
 const StartLazy = lazy(() => import("./Start/Start"));
 const MemeLazy = lazy(() => import("./Meme/MemeContainer.js"));
+const TodoLazy = lazy(() => import("./todo/Todo.js"));
 
 export default function Routers() {
   return (
-    <Router>
+    <Router basename="/basename">
       <Switch>
         <Route exact path="/about">
           <Suspense fallback={<h4>Loading about...</h4>}>
@@ -60,6 +61,12 @@ export default function Routers() {
         <Route exact path="/meme">
           <Suspense fallback={<h4>Cargando ...</h4>}>
             <MemeLazy />
+          </Suspense>
+        </Route>
+
+        <Route exact path="/todo">
+          <Suspense fallback={<h4>Cargando ...</h4>}>
+            <TodoLazy />
           </Suspense>
         </Route>
       </Switch>

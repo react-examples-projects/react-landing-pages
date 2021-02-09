@@ -1,6 +1,6 @@
 export function getAllsMemesLast() {
-  const memes = JSON.parse(localStorage.getItem("memes")) || [];
-  return memes;
+  const memes = JSON.parse(localStorage.getItem("memes"));
+  return memes?.reverse() || [];
 }
 
 function checkLengthLastMemes() {
@@ -9,13 +9,11 @@ function checkLengthLastMemes() {
 }
 
 export default function addLastMeme(meme) {
-  console.log(meme);
   const memes = getAllsMemesLast() || [];
   if (checkLengthLastMemes()) {
     memes.shift();
   }
-
+  
   memes.push(meme);
-
   localStorage.setItem("memes", JSON.stringify(memes));
 }
