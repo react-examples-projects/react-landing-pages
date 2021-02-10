@@ -53,6 +53,15 @@ input[type="checkbox"] {
   transform: translateY(-5px);
 }
 
+.todoNavItem {
+  color: #fff !important;
+  transition: background 0.3s ease;
+}
+
+.todoNavItem:hover {
+  background: linear-gradient(90deg, #5b86e5, #36d1dc);;
+}
+
 .todoNavItemCount {
   float: right;
   color: rgba(255, 255, 255, 0.788);

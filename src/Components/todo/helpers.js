@@ -19,6 +19,10 @@ export function setSectionTask(sectionTasks) {
   localStorage.setItem("sectionTasks", JSON.stringify(sectionTasks));
 }
 
+export function getFirstId() {
+  return getAllSeactionTask()[0].id || null;
+}
+
 function getLastId() {
   const sectionTasks = getAllSeactionTask();
   const len = sectionTasks.length;

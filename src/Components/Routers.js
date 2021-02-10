@@ -1,7 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { LoadingSignup, LoadingMain } from "./LoadingsComponents";
-
 const ProfilePageLazy = lazy(() => import("./Main"));
 const SignupLazy = lazy(() => import("./Signup"));
 const LoginLazy = lazy(() => import("./Login"));
