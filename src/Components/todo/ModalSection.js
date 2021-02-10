@@ -4,8 +4,14 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import css from "../css/todo.module.css";
+import { addSectionTask } from "./helpers";
 
-export default function ModalSection({ show, toggleModal }) {
+export default function ModalSection({
+  show,
+  toggleModal,
+  forceUpdate,
+  setForceUpdate,
+}) {
   const [isValid, setValid] = useState(false);
   const [task, setTask] = useState("");
   const [icon, setIcon] = useState("");
@@ -16,7 +22,13 @@ export default function ModalSection({ show, toggleModal }) {
       setValid(true);
     } else {
       setValid(true);
+      addSectionTask({
+        name: task,
+        icon,
+        tasks: 0,
+      });
     }
+    setForceUpdate(!forceUpdate);
     e.preventDefault();
   };
 

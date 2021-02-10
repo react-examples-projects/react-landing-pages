@@ -7,10 +7,13 @@ import ListGroup from "react-bootstrap/ListGroup";
 import ModalSection from "./ModalSection";
 import TodoItem from "./TodoItem";
 import TodoNavItem from "./TodoNavItem";
+import TodoNavItemList from "./TodoNavItemList";
+
 import { useState } from "react";
 
 export default function Todo() {
   const [show, setShow] = useState(true);
+  const [forceUpdate, setForceUpdate] = useState(false);
   const toggleModal = () => {
     setShow(!show);
   };
@@ -19,21 +22,22 @@ export default function Todo() {
     <>
       <Container className={css.containerTodo}>
         <Row className={css.rowTodo}>
-          <Col lg={3} className="p-0">
+          <Col sm={4} md={4} lg={3} className="p-0">
             <div className={css.todoNav}>
               <button className={css.btnAddTask} onClick={toggleModal}>
                 <i className="fa fa-plus-circle" />
               </button>
               <Nav className="flex-column">
-                <TodoNavItem title="Importance" icon="star" count="2" />
-                <TodoNavItem title="Planned" icon="calendar-alt" count="3" />
-                <TodoNavItem title="Life Style" icon="heart" count="1" />
-                <TodoNavItem title="Ideas" icon="brain" count="0" />
+                <TodoNavItem name="Importance" icon="star" tasks="2" />
+                <TodoNavItem name="Planned" icon="calendar-alt" tasks="3" />
+                <TodoNavItem name="Life Style" icon="heart" tasks="1" />
+                <TodoNavItem name="Ideas" icon="brain" tasks="0" />
+                <TodoNavItemList forceUpdate={forceUpdate} />
               </Nav>
             </div>
           </Col>
 
-          <Col lg={9} className="p-3">
+          <Col sm={8} md={8} lg={9} className="p-3">
             <Container>
               <ListGroup variant="flush" className={css.todoTask}>
                 <TodoItem title="Probando con un item" />
@@ -42,7 +46,7 @@ export default function Todo() {
           </Col>
         </Row>
       </Container>
-      <ModalSection {...{ show, toggleModal }} />
+      <ModalSection {...{ show, toggleModal, forceUpdate, setForceUpdate }} />
     </>
   );
 }

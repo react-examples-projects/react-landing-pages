@@ -36,7 +36,7 @@ const css = {
 };
 
 export default function Contact() {
-  //const history = useHistory();
+
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -45,6 +45,7 @@ export default function Contact() {
   const isMounted = useRef();
   const [isRegister, setRegister] = useState(false);
   const [show, setShow] = useState(true);
+  
   useEffect(() => {
     isMounted.current = true;
     return () => (isMounted.current = false);
