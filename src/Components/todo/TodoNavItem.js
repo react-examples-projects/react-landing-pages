@@ -4,11 +4,12 @@ import { SectionTaskContext } from "./context/SectionsTaskProvider";
 import css from "../css/todo.module.css";
 
 function TodoNavItem({ id, name, icon, tasks }) {
-  const { setSectionid } = useContext(SectionTaskContext);
+  const { sectionId, setSectionid } = useContext(SectionTaskContext);
+  const classNameActive = id === sectionId ? " " + css.todoNavItemActive : "";
   return (
     <Nav.Item
       as={Nav.Link}
-      className={css.todoNavItem}
+      className={`${css.todoNavItem}${classNameActive}`}
       onClick={() => setSectionid(id)}
     >
       <i className={`fa fa-${icon} mr-1`} />

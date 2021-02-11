@@ -6,14 +6,14 @@ import Button from "react-bootstrap/Button";
 import css from "../css/todo.module.css";
 import { addSectionTask } from "./helpers";
 
-export default function ModalSection({
-  show,
-  toggleModal,
+export default function ModalCreateSection({
+  showModalSectionTask,
+  toggleModalSectionTask,
   forceUpdate,
   setForceUpdate,
 }) {
   const [isValid, setValid] = useState(false);
-  const [task, setTask] = useState("");
+  const [taskSection, setTaskSection] = useState("");
   const [icon, setIcon] = useState("");
 
   const handleSubmit = (e) => {
@@ -23,7 +23,7 @@ export default function ModalSection({
     } else {
       setValid(true);
       addSectionTask({
-        name: task,
+        name: taskSection,
         icon,
         tasks: 0,
       });
@@ -33,24 +33,24 @@ export default function ModalSection({
   };
 
   return (
-    <Modal show={show} onHide={toggleModal} centered>
+    <Modal show={showModalSectionTask} onHide={toggleModalSectionTask} centered>
       <Modal.Header closeButton>
-        <Modal.Title>Add a new section for task</Modal.Title>
+        <Modal.Title>New Task Section</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form noValidate validated={isValid} onSubmit={handleSubmit}>
           <Form.Row>
             <Col>
               <Form.Group controlId="section">
-                <Form.Label>New section task: </Form.Label>
+                <Form.Label>Task Section Name: </Form.Label>
                 <Form.Control
                   type="text"
-                  value={task}
-                  onChange={(e) => setTask(e.target.value)}
+                  value={taskSection}
+                  onChange={(e) => setTaskSection(e.target.value)}
                   required
                 />
                 <Form.Control.Feedback className="d-block text-muted">
-                  You custom task section
+                  You custom taskSection section
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
@@ -70,7 +70,7 @@ export default function ModalSection({
               </Form.Group>
             </Col>
           </Form.Row>
-          <Button type="submit" className={css.btnCreateSection} block>
+          <Button type="submit" className={css.btnModals} block>
             Create
             <i className="fa fa-angle-double-right ml-2" />
           </Button>

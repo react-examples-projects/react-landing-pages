@@ -3,8 +3,8 @@ import Check from "react-bootstrap/FormCheck";
 import css from "../css/todo.module.css";
 import { useState } from "react";
 
-export default function TodoItem({ title }) {
-  const [isComplete, setIsComplete] = useState(false);
+export default function TodoItem({ name, isCompleted }) {
+  const [isComplete, setIsComplete] = useState(isCompleted);
   const [isFavorite, setFavorite] = useState(false);
   const toggleComplete = () => {
     setIsComplete(!isComplete);
@@ -31,7 +31,7 @@ export default function TodoItem({ title }) {
           textDecoration: isComplete ? "line-through" : "none",
         }}
       >
-        {title}
+        {name}
       </span>
       <i
         className={`fa fa-star align-self-center ml-auto ${css.starFavorite} ${

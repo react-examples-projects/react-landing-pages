@@ -4,8 +4,8 @@ import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import css from "../css/todo.module.css";
 import ListGroup from "react-bootstrap/ListGroup";
-import ModalSection from "./ModalSection";
-import TodoItem from "./TodoItem";
+import ModalCreateSection from "./ModalCreateSection";
+import ModalCreateTask from "./ModalCreateTask";
 import TodoNavItem from "./TodoNavItem";
 import TodoNavItemList from "./TodoNavItemList";
 import TodoTaks from "./TodoTasks";
@@ -13,10 +13,16 @@ import SectionsTaskProvider from "./context/SectionsTaskProvider";
 import { useState } from "react";
 
 export default function Todo() {
-  const [show, setShow] = useState(true);
+  const [showModalSectionTask, setShowModalSectionTask] = useState(false);
+  const [showModalCreateTask, setShowModalCreateTask] = useState(false);
   const [forceUpdate, setForceUpdate] = useState(false);
-  const toggleModal = () => {
-    setShow(!show);
+
+  const toggleModalSectionTask = () => {
+    setShowModalSectionTask(!showModalSectionTask);
+  };
+
+  const toggleModalCreateTask = () => {
+    setShowModalCreateTask(!showModalCreateTask);
   };
 
   return (
@@ -26,7 +32,10 @@ export default function Todo() {
           <Row className={css.rowTodo}>
             <Col sm={4} md={4} lg={3} className="p-0">
               <div className={css.todoNav}>
-                <button className={css.btnAddTask} onClick={toggleModal}>
+                <button
+                  className={css.btnAddSectionTask}
+                  onClick={toggleModalSectionTask}
+                >
                   <i className="fa fa-plus-circle" />
                 </button>
                 <Nav className="flex-column">
@@ -41,15 +50,31 @@ export default function Todo() {
 
             <Col sm={8} md={8} lg={9} className="p-3">
               <Container>
+                <a
+                  href="#"
+                  className={css.btnAddTask}
+                  onClick={toggleModalCreateTask}
+                >
+                  Add task
+                  <i className="fa fa fa-thumbtack ml-2" />
+                </a>
+
                 <ListGroup variant="flush" className={css.todoTask}>
-                  <TodoItem title="Probando con un item" />
+                  <TodoTaks />
                 </ListGroup>
-                <TodoTaks />
               </Container>
             </Col>
           </Row>
         </Container>
-        <ModalSection {...{ show, toggleModal, forceUpdate, setForceUpdate }} />
+        <ModalCreateSection
+          {...{
+            showModalSectionTask,
+            toggleModalSectionTask,
+            forceUpdate,
+            setForceUpdate,
+          }}
+        />
+        <ModalCreateTask {...{ showModalCreateTask, toggleModalCreateTask }} />
       </SectionsTaskProvider>
     </>
   );

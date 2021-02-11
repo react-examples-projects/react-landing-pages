@@ -22,22 +22,49 @@ body {
 
 .todoNav {
   height: 100%;
-  padding-top: 2rem;
+  padding-top: 3rem;
   padding-bottom: 2rem;
   background: #36d1dc;
   background: -webkit-linear-gradient(to bottom, #5b86e5, #36d1dc);
   background: linear-gradient(to bottom, #5b86e5, #36d1dc);
 }
 
+.btnAddSectionTask,
 .btnAddTask {
   border: none;
   background: transparent;
   outline: none;
+  display: block;
+}
+
+.btnAddSectionTask {
   font-size: 2rem;
   color: #fff;
   margin: auto;
-  display: block;
   margin-bottom: 1rem;
+}
+
+a.btnAddTask {
+  display: inline-block;
+  width: auto;
+  text-decoration: none;
+  position: relative;
+}
+
+a.btnAddTask::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 8px;
+  bottom: 0;
+  left: 0;
+  background: #845ec232;
+  transition: all 0.3s ease;
+}
+
+a.btnAddTask:hover::before {
+  height: 96%;
 }
 
 input[type="checkbox"] {
@@ -56,10 +83,20 @@ input[type="checkbox"] {
 .todoNavItem {
   color: #fff !important;
   transition: background 0.3s ease;
+  margin: 0 0.6rem;
+  border-radius: 5px;
+}
+
+.todoNavItem:not(:last-child) {
+  margin-bottom: 0.3rem;
 }
 
 .todoNavItem:hover {
-  background: linear-gradient(90deg, #5b86e5, #36d1dc);;
+  background: linear-gradient(90deg, #5b86e5, #36d1dc);
+}
+
+.todoNavItemActive {
+  background: linear-gradient(90deg, #5b86e5, #36d1dc);
 }
 
 .todoNavItemCount {
@@ -67,7 +104,7 @@ input[type="checkbox"] {
   color: rgba(255, 255, 255, 0.788);
 }
 
-.btnCreateSection {
+.btnModals {
   background: #36d1dc;
   background: -webkit-linear-gradient(90deg, #5b86e5, #36d1dc);
   background: linear-gradient(90deg, #5b86e5, #36d1dc);

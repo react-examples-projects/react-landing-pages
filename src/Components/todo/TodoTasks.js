@@ -1,7 +1,10 @@
 import { SectionTaskContext } from "./context/SectionsTaskProvider";
 import { useContext } from "react";
+import { getTaskBySection } from "./helpers";
+import TodoItem from "./TodoItem";
 
 export default function TodoTaks() {
   const { sectionId } = useContext(SectionTaskContext);
-  return <h1>Id actual {sectionId}</h1>;
+  const tasks= getTaskBySection(sectionId);
+  return tasks.map((task) => <TodoItem {...task} key={task.id} />);
 }
