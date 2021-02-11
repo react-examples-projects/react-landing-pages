@@ -1,13 +1,17 @@
 import ListGroup from "react-bootstrap/ListGroup";
 import Check from "react-bootstrap/FormCheck";
 import css from "../css/todo.module.css";
+import { toggleCompleteTask } from "./helpers";
 import { useState } from "react";
 
-export default function TodoItem({ name, isCompleted }) {
-  const [isComplete, setIsComplete] = useState(isCompleted);
+export default function TodoItem({ name, id, isCompleted }) {
+  const [isCompleteTask, setIsCompleteTask] = useState(isCompleted);
   const [isFavorite, setFavorite] = useState(false);
+  const classNameIsComplete = isCompleteTask ? "text-muted" : "text-dark";
+  const classNameStar = isFavorite ? "text-warning" : "text-dark";
   const toggleComplete = () => {
-    setIsComplete(!isComplete);
+    toggleCompleteTask({ isCompleted: !isCompleteTask, id });
+    setIsCompleteTask(!isCompleteTask);
   };
 
   const toggleFavorite = () => {
@@ -21,22 +25,20 @@ export default function TodoItem({ name, isCompleted }) {
     >
       <Check
         type="checkbox"
-        checked={isComplete}
+        checked={isCompleteTask}
         onChange={toggleComplete}
         custom
       />
       <span
-        className={isComplete ? "text-muted" : "text-dark"}
+        className={classNameIsComplete}
         style={{
-          textDecoration: isComplete ? "line-through" : "none",
+          textDecoration: isCompleteTask ? "line-through" : "none",
         }}
       >
         {name}
       </span>
       <i
-        className={`fa fa-star align-self-center ml-auto ${css.starFavorite} ${
-          isFavorite ? "text-warning" : "text-dark"
-        }`}
+        className={`fa fa-star align-self-center ml-auto ${css.starFavorite} ${classNameStar}`}
         onClick={toggleFavorite}
       />
     </ListGroup.Item>

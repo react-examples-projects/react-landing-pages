@@ -40,9 +40,6 @@ export default function Todo() {
                 </button>
                 <Nav className="flex-column">
                   <TodoNavItem name="Importance" icon="star" tasks="2" />
-                  <TodoNavItem name="Planned" icon="calendar-alt" tasks="3" />
-                  <TodoNavItem name="Life Style" icon="heart" tasks="1" />
-                  <TodoNavItem name="Ideas" icon="brain" tasks="0" />
                   <TodoNavItemList forceUpdate={forceUpdate} />
                 </Nav>
               </div>

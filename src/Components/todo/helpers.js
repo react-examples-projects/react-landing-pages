@@ -1,5 +1,9 @@
 // --------  TASKS --------
 
+function setTasks(tasks) {
+  localStorage.setItem("task", JSON.stringify(tasks));
+}
+
 export function getAllsTask() {
   return JSON.parse(localStorage.getItem("task")) || [];
 }
@@ -15,7 +19,7 @@ export default function addTask(task) {
   const tasks = getAllsTask();
   task.id = getLastTaskId();
   tasks.push(task);
-  localStorage.setItem("task", JSON.stringify(tasks));
+  setTasks(tasks);
 }
 
 export function getTaskBySection(sectionId) {
@@ -24,7 +28,12 @@ export function getTaskBySection(sectionId) {
   return taskFilter;
 }
 
-export function toggleCompleteTask(isCompleted) {}
+export function toggleCompleteTask({ isCompleted, id }) {
+  const tasks = getAllsTask();
+  const index = tasks.findIndex((task) => task.id === id);
+  tasks[index].isCompleted = isCompleted;
+  setTasks(tasks);
+}
 
 // -------- SECTION TASKS --------
 export function getAllSeactionTask() {
