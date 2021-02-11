@@ -15,7 +15,6 @@ import { useState } from "react";
 export default function Todo() {
   const [showModalSectionTask, setShowModalSectionTask] = useState(false);
   const [showModalCreateTask, setShowModalCreateTask] = useState(false);
-  const [forceUpdate, setForceUpdate] = useState(false);
 
   const toggleModalSectionTask = () => {
     setShowModalSectionTask(!showModalSectionTask);
@@ -40,7 +39,7 @@ export default function Todo() {
                 </button>
                 <Nav className="flex-column">
                   <TodoNavItem name="Importance" icon="star" tasks="2" />
-                  <TodoNavItemList forceUpdate={forceUpdate} />
+                  <TodoNavItemList />
                 </Nav>
               </div>
             </Col>
@@ -67,11 +66,15 @@ export default function Todo() {
           {...{
             showModalSectionTask,
             toggleModalSectionTask,
-            forceUpdate,
-            setForceUpdate,
+            
           }}
         />
-        <ModalCreateTask {...{ showModalCreateTask, toggleModalCreateTask }} />
+        <ModalCreateTask
+          {...{
+            showModalCreateTask,
+            toggleModalCreateTask,
+          }}
+        />
       </SectionsTaskProvider>
     </>
   );

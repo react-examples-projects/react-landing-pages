@@ -71,13 +71,20 @@ input[type="checkbox"] {
   z-index: 1;
 }
 
-.starFavorite {
+.starFavorite,
+.trash {
+  padding: 0.3rem;
   transition: all 0.2s ease;
   transform: translateY(0);
 }
 
-.starFavorite:active {
+.starFavorite:active,
+.trash:active {
   transform: translateY(-5px);
+}
+
+.trash:active {
+  color: #dc3545;
 }
 
 .todoNavItem {

@@ -25,8 +25,9 @@ export default function ModalCreateTask({
         isCompleted: false,
         sectionId,
       });
+      toggleModalCreateTask();
+      setTask("");
     }
-    //setForceUpdate(!forceUpdate);
     e.preventDefault();
   };
 

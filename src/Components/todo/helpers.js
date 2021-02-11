@@ -35,6 +35,13 @@ export function toggleCompleteTask({ isCompleted, id }) {
   setTasks(tasks);
 }
 
+export function deleteTask(id) {
+  const tasks = getAllsTask();
+  const index = tasks.findIndex((task) => task.id === id);
+  tasks.splice(index, 1);
+  setTasks(tasks);
+}
+
 // -------- SECTION TASKS --------
 export function getAllSeactionTask() {
   return JSON.parse(localStorage.getItem("sectionTasks")) || [];

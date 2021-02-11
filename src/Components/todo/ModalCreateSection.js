@@ -9,8 +9,6 @@ import { addSectionTask } from "./helpers";
 export default function ModalCreateSection({
   showModalSectionTask,
   toggleModalSectionTask,
-  forceUpdate,
-  setForceUpdate,
 }) {
   const [isValid, setValid] = useState(false);
   const [taskSection, setTaskSection] = useState("");
@@ -27,8 +25,11 @@ export default function ModalCreateSection({
         icon,
         tasks: 0,
       });
+      toggleModalSectionTask();
+      setTaskSection("");
+      setIcon("");
     }
-    setForceUpdate(!forceUpdate);
+
     e.preventDefault();
   };
 

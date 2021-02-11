@@ -1,10 +1,10 @@
 import ListGroup from "react-bootstrap/ListGroup";
 import Check from "react-bootstrap/FormCheck";
 import css from "../css/todo.module.css";
-import { toggleCompleteTask } from "./helpers";
-import { useState } from "react";
+import { toggleCompleteTask, deleteTask } from "./helpers";
+import { useState, memo } from "react";
 
-export default function TodoItem({ name, id, isCompleted }) {
+function TodoItem({ name, id, isCompleted }) {
   const [isCompleteTask, setIsCompleteTask] = useState(isCompleted);
   const [isFavorite, setFavorite] = useState(false);
   const classNameIsComplete = isCompleteTask ? "text-muted" : "text-dark";
@@ -16,6 +16,10 @@ export default function TodoItem({ name, id, isCompleted }) {
 
   const toggleFavorite = () => {
     setFavorite(!isFavorite);
+  };
+
+  const _deleteTask = () => {
+    deleteTask(id);
   };
 
   return (
@@ -41,6 +45,13 @@ export default function TodoItem({ name, id, isCompleted }) {
         className={`fa fa-star align-self-center ml-auto ${css.starFavorite} ${classNameStar}`}
         onClick={toggleFavorite}
       />
+
+      <i
+        className={`fa fa-trash align-self-center ml-2 ${css.trash}`}
+        onClick={_deleteTask}
+      />
     </ListGroup.Item>
   );
 }
+
+export default memo(TodoItem);
