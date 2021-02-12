@@ -27,7 +27,7 @@ function TodoNavItemList() {
         >
           <i className="fa fa-plus-circle" />
         </button>
-        
+
         <Nav className="flex-column">
           {sectionTasks.map((todoNavItem) => (
             <TodoNavItem {...todoNavItem} key={todoNavItem.id} />
