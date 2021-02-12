@@ -6,7 +6,7 @@ import TodoItem from "./TodoItem";
 import ListGroup from "react-bootstrap/ListGroup";
 import css from "../css/todo.module.css";
 import ModalCreateTask from "./ModalCreateTask";
-import { Link } from "react-router-dom";
+import LinkMagic from "./LinkMagic";
 
 export default function TodoTaks(props) {
   const { sectionId } = useContext(SectionTaskContext);
@@ -27,10 +27,12 @@ export default function TodoTaks(props) {
   return (
     <div className={css.taskList}>
       <Container>
-        <Link to="#" className={css.btnAddTask} onClick={toggleModalCreateTask}>
-          Add task
-          <i className="fa fa fa-thumbtack ml-2" />
-        </Link>
+        <LinkMagic
+          text="Add task"
+          icon="thumbtack"
+          onClick={toggleModalCreateTask}
+        />
+        <LinkMagic text="Remove Section" icon="eraser" className="ml-3" />
 
         <ListGroup variant="flush" className={css.todoTask}>
           {tasks.map((task) => (

@@ -40,7 +40,7 @@ body {
 }
 
 .btnAddSectionTask,
-.btnAddTask {
+.linkMagic {
   border: none;
   background: transparent;
   outline: none;
@@ -54,14 +54,14 @@ body {
   margin-bottom: 1rem;
 }
 
-a.btnAddTask {
+a.linkMagic {
   display: inline-block;
   width: auto;
   text-decoration: none;
   position: relative;
 }
 
-a.btnAddTask::before {
+a.linkMagic::before {
   content: "";
   display: block;
   position: absolute;
@@ -73,7 +73,7 @@ a.btnAddTask::before {
   transition: all 0.3s ease;
 }
 
-a.btnAddTask:hover::before {
+a.linkMagic:hover::before {
   height: 96%;
 }
 
@@ -132,7 +132,7 @@ input[type="checkbox"] {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {

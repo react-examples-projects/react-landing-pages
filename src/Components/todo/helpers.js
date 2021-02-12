@@ -43,8 +43,15 @@ export function deleteTask(id) {
 }
 
 // -------- SECTION TASKS --------
+
 export function getAllSeactionTask() {
   return JSON.parse(localStorage.getItem("sectionTasks")) || [];
+}
+
+export function getTaskCountBySection(sectionId) {
+  const tasks = getAllsTask();
+  const count = tasks.filter((task) => task.sectionId === sectionId);
+  return count.length;
 }
 
 export function setSectionTask(sectionTasks) {
