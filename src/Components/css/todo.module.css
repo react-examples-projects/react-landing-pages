@@ -7,6 +7,15 @@ body {
   margin-top: 12rem;
 }
 
+.taskList {
+  max-height: 368px;
+}
+
+.taskList,
+.todoNav {
+  overflow-y: auto;
+}
+
 .rowTodo {
   background: #fff;
   border-radius: 10px;
@@ -27,6 +36,7 @@ body {
   background: #36d1dc;
   background: -webkit-linear-gradient(to bottom, #5b86e5, #36d1dc);
   background: linear-gradient(to bottom, #5b86e5, #36d1dc);
+  max-height: 400px;
 }
 
 .btnAddSectionTask,
@@ -119,4 +129,17 @@ input[type="checkbox"] {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.342);
+  border-radius: 5px;
 }

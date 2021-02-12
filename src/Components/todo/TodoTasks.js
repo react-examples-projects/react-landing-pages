@@ -1,5 +1,5 @@
 import { SectionTaskContext } from "./context/SectionsTaskProvider";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect, useCallback } from "react";
 import { getTaskBySection } from "./helpers";
 import Container from "react-bootstrap/Container";
 import TodoItem from "./TodoItem";
@@ -16,16 +16,22 @@ export default function TodoTaks(props) {
   const toggleModalCreateTask = () => {
     setShowModalCreateTask(!showModalCreateTask);
   };
-  const getAllTasks = () => setTasks(getTaskBySection(sectionId));
+  const getAllTasks = useCallback(() => {
+    setTasks(getTaskBySection(sectionId));
+  }, [sectionId]);
+
+  useEffect(() => {
+    getAllTasks();
+  }, [sectionId, getAllTasks]);
 
   return (
-    <>
+    <div className={css.taskList}>
       <Container>
         <Link to="#" className={css.btnAddTask} onClick={toggleModalCreateTask}>
           Add task
           <i className="fa fa fa-thumbtack ml-2" />
         </Link>
-        
+
         <ListGroup variant="flush" className={css.todoTask}>
           {tasks.map((task) => (
             <TodoItem
@@ -42,8 +48,9 @@ export default function TodoTaks(props) {
         {...{
           showModalCreateTask,
           toggleModalCreateTask,
+          getAllTasks,
         }}
       />
-    </>
+    </div>
   );
 }
