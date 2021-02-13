@@ -4,7 +4,7 @@ import { SectionTaskContext } from "./context/SectionsTaskProvider";
 import { getTaskCountBySection } from "./helpers";
 import css from "../css/todo.module.css";
 
-function TodoNavItem({ id, name, icon, tasks }) {
+function TodoNavItem({ id, name, icon }) {
   const { sectionId, setSectionid } = useContext(SectionTaskContext);
   const classNameActive = id === sectionId ? " " + css.todoNavItemActive : "";
   return (

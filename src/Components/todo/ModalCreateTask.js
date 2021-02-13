@@ -9,12 +9,12 @@ import { SectionTaskContext } from "./context/SectionsTaskProvider";
 export default function ModalCreateTask({
   showModalCreateTask,
   toggleModalCreateTask,
-  getAllTasks,
+  getAllTasks
 }) {
   const { sectionId } = useContext(SectionTaskContext);
   const [isValid, setValid] = useState(false);
   const [task, setTask] = useState("");
-
+  
   const handleSubmit = (e) => {
     const isFormValid = e.target.checkValidity();
     if (!isFormValid) {
