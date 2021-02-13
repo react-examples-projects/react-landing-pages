@@ -4,25 +4,38 @@ import ListGroup from "react-bootstrap/ListGroup";
 import TodoOptions from "./TodoOptions";
 import css from "../css/todo.module.css";
 import useGetAllTasks from "./hooks/useGetAllTasks";
+import Image from "react-bootstrap/Image";
+import emptyTasks from "./img/empty_tasks.png";
 
-export default function TodoTaks(props) {
+export default function TodoTaks({ countSectionTasks, ...props }) {
   const { tasks, getAllTasks } = useGetAllTasks();
+  const tasksLength = tasks?.length > 0;
+
   return (
     <>
-      <TodoOptions getAllTasks={getAllTasks} />
+      {countSectionTasks && <TodoOptions getAllTasks={getAllTasks} />}
       <div className={css.taskList}>
-        <Container>
-          <ListGroup variant="flush" className={css.todoTask}>
-            {tasks.map((task) => (
-              <TodoItem
-                {...task}
-                {...props}
-                key={task.id}
-                getAllTasks={getAllTasks}
-              />
-            ))}
-          </ListGroup>
-        </Container>
+        {tasksLength ? (
+          <Container>
+            <ListGroup variant="flush" className={css.todoTask}>
+              {tasks.map((task) => (
+                <TodoItem
+                  {...task}
+                  {...props}
+                  key={task.id}
+                  getAllTasks={getAllTasks}
+                />
+              ))}
+            </ListGroup>
+          </Container>
+        ) : (
+          <>
+            <div className="d-flex align-items-center h-100 w-100 mt-4">
+              <Image src={emptyTasks} width="200px" fluid />
+              <h5 className="text-center">¡Parece ser que no tienes tareas!</h5>
+            </div>
+          </>
+        )}
       </div>
     </>
   );

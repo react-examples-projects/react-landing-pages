@@ -50,6 +50,10 @@ export function getAllSectionTasks() {
   return JSON.parse(localStorage.getItem("sectionTasks")) || [];
 }
 
+export function getCountSectionTasks() {
+  return getAllSectionTasks().length;
+}
+
 export function getSectionById(sectionId, op) {
   const sectionTasks = getAllSectionTasks();
   const sectionTask = sectionTasks.find((section) => section.id === sectionId);
