@@ -18,6 +18,7 @@ export function getLastTaskId() {
 export default function addTask(task) {
   const tasks = getAllsTask();
   task.id = getLastTaskId();
+  increaseTaskCountBySection(task.sectionId);
   tasks.push(task);
   setTasks(tasks);
 }
@@ -35,17 +36,33 @@ export function toggleCompleteTask({ isCompleted, id }) {
   setTasks(tasks);
 }
 
-export function deleteTask(id) {
+export function deleteTask(id, sectionId) {
   const tasks = getAllsTask();
   const index = tasks.findIndex((task) => task.id === id);
   tasks.splice(index, 1);
   setTasks(tasks);
+  reduceTaskCountBySection(sectionId);
 }
 
 // -------- SECTION TASKS --------
 
-export function getAllSeactionTask() {
+export function getAllSectionTasks() {
   return JSON.parse(localStorage.getItem("sectionTasks")) || [];
+}
+
+export function getSectionById(sectionId, op) {
+  const sectionTasks = getAllSectionTasks();
+  const sectionTask = sectionTasks.find((section) => section.id === sectionId);
+  op ? sectionTask.tasks++ : sectionTask.tasks--;
+  setSectionTask(sectionTasks);
+}
+
+export function increaseTaskCountBySection(sectionId) {
+  getSectionById(sectionId, true);
+}
+
+export function reduceTaskCountBySection(sectionId) {
+  getSectionById(sectionId, false);
 }
 
 export function getTaskCountBySection(sectionId) {
@@ -59,18 +76,18 @@ export function setSectionTask(sectionTasks) {
 }
 
 export function getFirstSectionId() {
-  return getAllSeactionTask()[0]?.id || null;
+  return getAllSectionTasks()[0]?.id || null;
 }
 
 function getLastSectionId() {
-  const sectionTasks = getAllSeactionTask();
+  const sectionTasks = getAllSectionTasks();
   const len = sectionTasks.length;
   const lastId = sectionTasks[len - 1]?.id;
   return lastId ? lastId + 1 : 1;
 }
 
 export function addSectionTask(sectionTask) {
-  const sectionTasks = getAllSeactionTask();
+  const sectionTasks = getAllSectionTasks();
   sectionTask.id = getLastSectionId();
   sectionTasks.push(sectionTask);
   setSectionTask(sectionTasks);

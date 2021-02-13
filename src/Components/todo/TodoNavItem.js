@@ -1,10 +1,9 @@
 import { memo, useContext } from "react";
 import Nav from "react-bootstrap/Nav";
 import { SectionTaskContext } from "./context/SectionsTaskProvider";
-import { getTaskCountBySection } from "./helpers";
 import css from "../css/todo.module.css";
 
-function TodoNavItem({ id, name, icon }) {
+function TodoNavItem({ id, name, icon, tasks }) {
   const { sectionId, setSectionid } = useContext(SectionTaskContext);
   const classNameActive = id === sectionId ? " " + css.todoNavItemActive : "";
   return (
@@ -15,9 +14,7 @@ function TodoNavItem({ id, name, icon }) {
     >
       <i className={`fa fa-${icon} mr-1`} />
       <span>{name}</span>
-      <span className={css.todoNavItemCount}>
-        {getTaskCountBySection(id)}
-      </span>
+      <span className={css.todoNavItemCount}>{tasks}</span>
     </Nav.Item>
   );
 }

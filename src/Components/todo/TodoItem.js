@@ -4,7 +4,7 @@ import css from "../css/todo.module.css";
 import { toggleCompleteTask, deleteTask } from "./helpers";
 import { useState } from "react";
 
-function TodoItem({ name, id, isCompleted, getAllTasks }) {
+function TodoItem({ name, id, isCompleted, sectionId, getAllTasks }) {
   const [isCompleteTask, setIsCompleteTask] = useState(isCompleted);
   const [isFavorite, setFavorite] = useState(false);
   const classNameIsComplete = isCompleteTask ? "text-muted" : "text-dark";
@@ -20,7 +20,7 @@ function TodoItem({ name, id, isCompleted, getAllTasks }) {
   };
 
   const _deleteTask = () => {
-    deleteTask(id);
+    deleteTask(id, sectionId);
     getAllTasks();
   };
 
