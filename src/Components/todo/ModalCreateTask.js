@@ -1,19 +1,19 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import css from "../css/todo.module.css";
 import addTask, { getAllSectionTasks } from "./helpers";
-import { CurrentSectionIdContext } from "./context/CurrentSectionIdProvider";
-import { SectionInformationContext } from "./context/SectionInformationProvider";
+import { useCurrentSectionId } from "./context/CurrentSectionIdProvider";
+import { useSectionInformation } from "./context/SectionInformationProvider";
 
 export default function ModalCreateTask({
   showModalCreateTask,
   toggleModalCreateTask,
   getAllTasks,
 }) {
-  const { sectionId } = useContext(CurrentSectionIdContext);
-  const { setSectionTasks } = useContext(SectionInformationContext);
+  const { sectionId } = useCurrentSectionId();
+  const { setSectionTasks } = useSectionInformation();
   const [isValid, setValid] = useState(false);
   const [task, setTask] = useState("");
 

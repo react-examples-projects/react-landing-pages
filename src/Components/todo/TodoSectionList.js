@@ -1,16 +1,14 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import TodoSection from "./TodoSection";
 import ModalCreateSection from "./ModalCreateSection";
 import css from "../css/todo.module.css";
 import Nav from "react-bootstrap/Nav";
 import { addSectionTask } from "./helpers";
-import { SectionInformationContext } from "./context/SectionInformationProvider";
+import { useSectionInformation } from "./context/SectionInformationProvider";
 
 function TodoSectionList({ setCountSectionTasks }) {
   const [showModalSectionTask, setShowModalSectionTask] = useState(false);
-  const { sectionTasks, setSectionTasks } = useContext(
-    SectionInformationContext
-  );
+  const { sectionTasks, setSectionTasks } = useSectionInformation();
   const sectionTasksLength = sectionTasks?.length > 0;
 
   const toggleModalSectionTask = () => {

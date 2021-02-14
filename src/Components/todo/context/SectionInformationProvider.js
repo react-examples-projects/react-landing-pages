@@ -1,16 +1,21 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useMemo, useContext } from "react";
 import { getAllSectionTasks } from "../helpers";
 
 export const SectionInformationContext = createContext();
 
-export default function SectionInformationProvider({ children }) {
-  const [sectionTasks, setSectionTasks] = useState(getAllSectionTasks());
+export const useSectionInformation = () => {
+  const context = useContext(SectionInformationContext);
+  if (!context) {
+    throw new Error("El consumidor de las secciones debe tener un proveedor");
+  }
+  return context;
+};
 
-  return (
-    <SectionInformationContext.Provider
-      value={{ sectionTasks, setSectionTasks }}
-    >
-      {children}
-    </SectionInformationContext.Provider>
-  );
+export default function SectionInformationProvider(props) {
+  const [sectionTasks, setSectionTasks] = useState(getAllSectionTasks());
+  const value = useMemo(() => ({ sectionTasks, setSectionTasks }), [
+    sectionTasks,
+  ]);
+
+  return <SectionInformationContext.Provider value={value} {...props} />;
 }

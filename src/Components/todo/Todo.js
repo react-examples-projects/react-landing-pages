@@ -5,7 +5,7 @@ import css from "../css/todo.module.css";
 import TodoSectionList from "./TodoSectionList";
 import TodoTaksList from "./TodoTasksList";
 import CurrentSectionIdProvider from "./context/CurrentSectionIdProvider";
-import SectionInformationContext from "./context/SectionInformationProvider";
+import SectionInformationProvider from "./context/SectionInformationProvider";
 import { useState } from "react";
 import { getCountSectionTasks } from "./helpers";
 
@@ -19,7 +19,7 @@ export default function Todo() {
       <Container className={css.containerTodo}>
         <Row className={css.rowTodo}>
           <CurrentSectionIdProvider>
-            <SectionInformationContext>
+            <SectionInformationProvider>
               <Col sm={4} md={4} lg={3} className="p-0">
                 <TodoSectionList
                   {...{
@@ -30,7 +30,7 @@ export default function Todo() {
               <Col sm={8} md={8} lg={9} className="p-3">
                 <TodoTaksList countSectionTasks={countSectionTasks > 0} />
               </Col>
-            </SectionInformationContext>
+            </SectionInformationProvider>
           </CurrentSectionIdProvider>
         </Row>
       </Container>

@@ -2,15 +2,15 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Check from "react-bootstrap/FormCheck";
 import css from "../css/todo.module.css";
 import { toggleCompleteTask, deleteTask, getAllSectionTasks } from "./helpers";
-import { useState, useContext } from "react";
-import { SectionInformationContext } from "./context/SectionInformationProvider";
+import { useState } from "react";
+import { useSectionInformation } from "./context/SectionInformationProvider";
 
 function TodoTask({ name, id, isCompleted, sectionId, getAllTasks }) {
   const [isCompleteTask, setIsCompleteTask] = useState(isCompleted);
   const [isFavorite, setFavorite] = useState(false);
   const classNameIsComplete = isCompleteTask ? "text-muted" : "text-dark";
   const classNameStar = isFavorite ? "text-warning" : "text-dark";
-  const { setSectionTasks } = useContext(SectionInformationContext);
+  const { setSectionTasks } = useSectionInformation();
 
   const toggleComplete = () => {
     toggleCompleteTask({ isCompleted: !isCompleteTask, id });
