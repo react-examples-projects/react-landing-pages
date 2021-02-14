@@ -2,7 +2,7 @@ import { useState } from "react";
 import LinkMagic from "./LinkMagic";
 import ModalCreateTask from "./ModalCreateTask";
 
-export default function TodoOptions({ getAllTasks }) {
+export default function TodoOptions({  setSectionTasks }) {
   const [showModalCreateTask, setShowModalCreateTask] = useState(false);
 
   const toggleModalCreateTask = () => {
@@ -21,7 +21,7 @@ export default function TodoOptions({ getAllTasks }) {
         {...{
           showModalCreateTask,
           toggleModalCreateTask,
-          getAllTasks,
+          setSectionTasks,
         }}
       />
     </>

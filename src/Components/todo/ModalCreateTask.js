@@ -3,18 +3,18 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import css from "../css/todo.module.css";
-import addTask from "./helpers";
+import addTask, { getAllSectionTasks } from "./helpers";
 import { SectionTaskContext } from "./context/SectionsTaskProvider";
 
 export default function ModalCreateTask({
   showModalCreateTask,
   toggleModalCreateTask,
-  getAllTasks,
+  setSectionTasks,
 }) {
   const { sectionId } = useContext(SectionTaskContext);
   const [isValid, setValid] = useState(false);
   const [task, setTask] = useState("");
-  
+
   const handleSubmit = (e) => {
     const isFormValid = e.target.checkValidity();
     if (!isFormValid) {
@@ -27,9 +27,8 @@ export default function ModalCreateTask({
         sectionId,
       });
       toggleModalCreateTask();
-      getAllTasks();
+      setSectionTasks(getAllSectionTasks());
       setTask("");
-
     }
     e.preventDefault();
   };

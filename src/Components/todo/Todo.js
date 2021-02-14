@@ -6,12 +6,13 @@ import TodoSectionList from "./TodoSectionList";
 import TodoTaksList from "./TodoTasksList";
 import SectionsTaskProvider from "./context/SectionsTaskProvider";
 import { useState } from "react";
-import { getCountSectionTasks } from "./helpers";
+import { getCountSectionTasks, getAllSectionTasks } from "./helpers";
 
 export default function Todo() {
   const [countSectionTasks, setCountSectionTasks] = useState(
     getCountSectionTasks()
   );
+  const [sectionTasks, setSectionTasks] = useState(getAllSectionTasks());
 
   return (
     <>
@@ -19,10 +20,19 @@ export default function Todo() {
         <Row className={css.rowTodo}>
           <SectionsTaskProvider>
             <Col sm={4} md={4} lg={3} className="p-0">
-              <TodoSectionList setCountSectionTasks={setCountSectionTasks} />
+              <TodoSectionList
+                {...{
+                  setCountSectionTasks,
+                  setSectionTasks,
+                  sectionTasks,
+                }}
+              />
             </Col>
             <Col sm={8} md={8} lg={9} className="p-3">
-              <TodoTaksList countSectionTasks={countSectionTasks > 0} />
+              <TodoTaksList
+                countSectionTasks={countSectionTasks > 0}
+                setSectionTasks={setSectionTasks}
+              />
             </Col>
           </SectionsTaskProvider>
         </Row>

@@ -7,7 +7,11 @@ import useGetAllTasks from "./hooks/useGetAllTasks";
 import Image from "react-bootstrap/Image";
 import emptyTasks from "./img/empty_tasks.png";
 
-export default function TodoTaksList({ countSectionTasks, ...props }) {
+export default function TodoTaksList({
+  countSectionTasks,
+  setSectionTasks,
+  ...props
+}) {
   const { tasks, getAllTasks } = useGetAllTasks();
   const tasksLength = tasks?.length > 0;
 
@@ -15,7 +19,10 @@ export default function TodoTaksList({ countSectionTasks, ...props }) {
     <>
       {countSectionTasks && (
         <TodoOptions
-          getAllTasks={getAllTasks}
+          {...{
+            getAllTasks,
+            setSectionTasks,
+          }}
         />
       )}
       <div className={css.taskList}>
