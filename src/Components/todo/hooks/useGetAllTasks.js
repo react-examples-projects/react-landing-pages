@@ -1,9 +1,9 @@
 import { useState, useContext, useCallback, useEffect } from "react";
 import { getTaskBySection } from "../helpers";
-import { SectionTaskContext } from "../context/SectionsTaskProvider";
+import { CurrentSectionIdContext } from "../context/CurrentSectionIdProvider";
 
 export default function useGetAllTasks() {
-  const { sectionId } = useContext(SectionTaskContext);
+  const { sectionId } = useContext(CurrentSectionIdContext);
   const [tasks, setTasks] = useState(getTaskBySection(sectionId));
 
   const getAllTasks = useCallback(() => {

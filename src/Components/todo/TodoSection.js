@@ -1,10 +1,10 @@
 import { memo, useContext } from "react";
 import Nav from "react-bootstrap/Nav";
-import { SectionTaskContext } from "./context/SectionsTaskProvider";
+import { CurrentSectionIdContext } from "./context/CurrentSectionIdProvider";
 import css from "../css/todo.module.css";
 
 function TodoSection({ id, name, icon, tasks }) {
-  const { sectionId, setSectionid } = useContext(SectionTaskContext);
+  const { sectionId, setSectionid } = useContext(CurrentSectionIdContext);
   const classNameActive = id === sectionId ? " " + css.todoNavItemActive : "";
   return (
     <Nav.Item

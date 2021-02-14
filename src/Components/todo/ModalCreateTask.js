@@ -4,14 +4,16 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import css from "../css/todo.module.css";
 import addTask, { getAllSectionTasks } from "./helpers";
-import { SectionTaskContext } from "./context/SectionsTaskProvider";
+import { CurrentSectionIdContext } from "./context/CurrentSectionIdProvider";
+import { SectionInformationContext } from "./context/SectionInformationProvider";
 
 export default function ModalCreateTask({
   showModalCreateTask,
   toggleModalCreateTask,
-  setSectionTasks,
+  getAllTasks,
 }) {
-  const { sectionId } = useContext(SectionTaskContext);
+  const { sectionId } = useContext(CurrentSectionIdContext);
+  const { setSectionTasks } = useContext(SectionInformationContext);
   const [isValid, setValid] = useState(false);
   const [task, setTask] = useState("");
 
@@ -27,6 +29,7 @@ export default function ModalCreateTask({
         sectionId,
       });
       toggleModalCreateTask();
+      getAllTasks();
       setSectionTasks(getAllSectionTasks());
       setTask("");
     }
