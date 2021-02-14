@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import { SectionTaskContext } from "./context/SectionsTaskProvider";
 import css from "../css/todo.module.css";
 
-function TodoNavItem({ id, name, icon, tasks }) {
+function TodoSection({ id, name, icon, tasks }) {
   const { sectionId, setSectionid } = useContext(SectionTaskContext);
   const classNameActive = id === sectionId ? " " + css.todoNavItemActive : "";
   return (
@@ -18,4 +18,4 @@ function TodoNavItem({ id, name, icon, tasks }) {
     </Nav.Item>
   );
 }
-export default memo(TodoNavItem);
+export default memo(TodoSection);

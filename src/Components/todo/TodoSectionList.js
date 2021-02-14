@@ -1,11 +1,11 @@
 import { useState } from "react";
-import TodoNavItem from "./TodoNavItem";
+import TodoSection from "./TodoSection";
 import ModalCreateSection from "./ModalCreateSection";
 import css from "../css/todo.module.css";
 import Nav from "react-bootstrap/Nav";
 import { getAllSectionTasks, addSectionTask } from "./helpers";
 
-function TodoNavItemList({ setCountSectionTasks }) {
+function TodoSectionList({ setCountSectionTasks }) {
   const [showModalSectionTask, setShowModalSectionTask] = useState(false);
   const [sectionTasks, setSectionTasks] = useState(getAllSectionTasks());
   const sectionTasksLength = sectionTasks?.length > 0;
@@ -33,7 +33,7 @@ function TodoNavItemList({ setCountSectionTasks }) {
         {sectionTasksLength ? (
           <Nav className="flex-column">
             {sectionTasks.map((todoNavItem) => (
-              <TodoNavItem {...todoNavItem} key={todoNavItem.id} />
+              <TodoSection {...todoNavItem} key={todoNavItem.id} />
             ))}
           </Nav>
         ) : (
@@ -54,4 +54,4 @@ function TodoNavItemList({ setCountSectionTasks }) {
   );
 }
 
-export default TodoNavItemList;
+export default TodoSectionList;

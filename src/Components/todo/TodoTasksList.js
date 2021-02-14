@@ -1,5 +1,5 @@
 import Container from "react-bootstrap/Container";
-import TodoItem from "./TodoItem";
+import TodoTask from "./TodoTask";
 import ListGroup from "react-bootstrap/ListGroup";
 import TodoOptions from "./TodoOptions";
 import css from "../css/todo.module.css";
@@ -7,19 +7,23 @@ import useGetAllTasks from "./hooks/useGetAllTasks";
 import Image from "react-bootstrap/Image";
 import emptyTasks from "./img/empty_tasks.png";
 
-export default function TodoTaks({ countSectionTasks, ...props }) {
+export default function TodoTaksList({ countSectionTasks, ...props }) {
   const { tasks, getAllTasks } = useGetAllTasks();
   const tasksLength = tasks?.length > 0;
 
   return (
     <>
-      {countSectionTasks && <TodoOptions getAllTasks={getAllTasks} />}
+      {countSectionTasks && (
+        <TodoOptions
+          getAllTasks={getAllTasks}
+        />
+      )}
       <div className={css.taskList}>
         {tasksLength ? (
           <Container>
             <ListGroup variant="flush" className={css.todoTask}>
               {tasks.map((task) => (
-                <TodoItem
+                <TodoTask
                   {...task}
                   {...props}
                   key={task.id}

@@ -9,7 +9,7 @@ import { SectionTaskContext } from "./context/SectionsTaskProvider";
 export default function ModalCreateTask({
   showModalCreateTask,
   toggleModalCreateTask,
-  getAllTasks
+  getAllTasks,
 }) {
   const { sectionId } = useContext(SectionTaskContext);
   const [isValid, setValid] = useState(false);
@@ -29,6 +29,7 @@ export default function ModalCreateTask({
       toggleModalCreateTask();
       getAllTasks();
       setTask("");
+
     }
     e.preventDefault();
   };

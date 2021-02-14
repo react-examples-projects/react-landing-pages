@@ -10,14 +10,18 @@ export default function useGetAllTasks() {
     setTasks(getTaskBySection(sectionId));
   }, [sectionId]);
 
+  const getAllTasksNotMemo = () => {
+    setTasks(getTaskBySection(sectionId));
+  };
+
   useEffect(() => {
     getAllTasks();
-   
   }, [sectionId, getAllTasks]);
 
   return {
     tasks,
     sectionId,
     getAllTasks,
+    getAllTasksNotMemo,
   };
 }
