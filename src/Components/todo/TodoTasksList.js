@@ -9,6 +9,7 @@ import emptyTasks from "./img/empty_tasks.png";
 
 export default function TodoTaksList({ countSectionTasks, ...props }) {
   const { tasks, getAllTasks } = useGetAllTasks();
+
   const tasksLength = tasks?.length > 0;
 
   return (

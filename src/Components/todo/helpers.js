@@ -44,6 +44,14 @@ export function deleteTask(id, sectionId) {
   reduceTaskCountBySection(sectionId);
 }
 
+export function deleteTasksBySection(sectionId) {
+  const tasks = getAllsTask();
+  const tasksFilter = tasks.filter((task) => task.sectionId !== sectionId);
+  setTasks(tasksFilter);
+
+  return tasksFilter;
+}
+
 // -------- SECTION TASKS --------
 
 export function getAllSectionTasks() {
@@ -59,6 +67,17 @@ export function getSectionById(sectionId, op) {
   const sectionTask = sectionTasks.find((section) => section.id === sectionId);
   op ? sectionTask.tasks++ : sectionTask.tasks--;
   setSectionTask(sectionTasks);
+}
+
+export function deleteSectionTask(sectionId) {
+  const sectionTasks = getAllSectionTasks();
+  const sectionTasksFilter = sectionTasks.filter(
+    (sectionTask) => sectionTask.id !== sectionId
+  );
+
+  setSectionTask(sectionTasksFilter);
+  deleteTasksBySection(sectionId);
+  return sectionTasksFilter;
 }
 
 export function increaseTaskCountBySection(sectionId) {
