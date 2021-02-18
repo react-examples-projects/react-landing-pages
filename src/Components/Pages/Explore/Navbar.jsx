@@ -1,6 +1,6 @@
 import Nav from "react-bootstrap/Nav";
-import menuClose from "../img/menu.png";
-import menuOpen from "../img/close.png";
+import menuClose from "../../img/menu.png";
+import menuOpen from "../../img/close.png";
 import {
   rotate,
   menuImg,
@@ -8,7 +8,7 @@ import {
   socialMedia,
   pagination,
   hoverLink,
-} from "../css/explore.module.css";
+} from "../../css/explore.module.css";
 
 export default function NavbarMenu({ toggleMenu, isOpen }) {
   return (

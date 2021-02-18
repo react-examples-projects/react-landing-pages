@@ -1,4 +1,4 @@
-import { box } from "../css/about.module.css";
+import { box } from "../../css/about.module.css";
 
 export default function Box({
   icon,

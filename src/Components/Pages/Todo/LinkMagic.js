@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
-import css from "../css/todo.module.css";
+import css from "../../css/todo.module.css";
 
 function LinkMagic({ text, to = "#", icon, className, ...args }) {
   const _className = className ? ` ${className}` : "";

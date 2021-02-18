@@ -1,7 +1,7 @@
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
-import { brand } from "../css/about.module.css";
+import { brand } from "../../css/about.module.css";
 
 export default function NavbarMenu() {
   return (

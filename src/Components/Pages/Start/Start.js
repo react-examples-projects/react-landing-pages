@@ -3,9 +3,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import css from "../css/start.module.css";
+import css from "../../css/start.module.css";
 import Image from "react-bootstrap/Image";
-import bgImg from "../img/bb301d108967241.5fc910c5aeb82.png";
+import bgImg from "../../img/bb301d108967241.5fc910c5aeb82.png";
 import { Link } from "react-router-dom";
 
 export default function Start() {

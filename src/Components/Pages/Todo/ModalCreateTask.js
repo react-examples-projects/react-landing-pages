@@ -2,7 +2,7 @@ import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import css from "../css/todo.module.css";
+import css from "../../css/todo.module.css";
 import addTask, { getAllSectionTasks } from "./helpers";
 import { useCurrentSectionId } from "./context/CurrentSectionIdProvider";
 import { useSectionInformation } from "./context/SectionInformationProvider";

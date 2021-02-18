@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import TodoTask from "./TodoTask";
 import ListGroup from "react-bootstrap/ListGroup";
 import TodoOptions from "./TodoOptions";
-import css from "../css/todo.module.css";
+import css from "../../css/todo.module.css";
 import useGetAllTasks from "./hooks/useGetAllTasks";
 import Image from "react-bootstrap/Image";
 import emptyTasks from "./img/empty_tasks.png";

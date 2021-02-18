@@ -16,7 +16,7 @@ import {
   input,
   inputGroup,
   btn,
-} from "../css/explore.module.css";
+} from "../../css/explore.module.css";
 export default function Explorer() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);

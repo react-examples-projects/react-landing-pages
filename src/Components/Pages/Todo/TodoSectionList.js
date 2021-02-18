@@ -1,7 +1,7 @@
 import { useState } from "react";
 import TodoSection from "./TodoSection";
 import ModalCreateSection from "./ModalCreateSection";
-import css from "../css/todo.module.css";
+import css from "../../css/todo.module.css";
 import Nav from "react-bootstrap/Nav";
 import { addSectionTask } from "./helpers";
 import { useSectionInformation } from "./context/SectionInformationProvider";

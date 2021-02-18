@@ -2,14 +2,14 @@ import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { LoadingSignup, LoadingMain } from "./LoadingsComponents";
 const ProfilePageLazy = lazy(() => import("./Main"));
-const SignupLazy = lazy(() => import("./Signup"));
-const LoginLazy = lazy(() => import("./Login"));
-const AboutLazy = lazy(() => import("./About/About"));
-const ExploreLazy = lazy(() => import("./Explore/Explore"));
-const ProductLazy = lazy(() => import("./Product"));
-const StartLazy = lazy(() => import("./Start/Start"));
-const MemeLazy = lazy(() => import("./Meme/MemeContainer.js"));
-const TodoLazy = lazy(() => import("./todo/Todo.js"));
+const SignupLazy = lazy(() => import("./Pages/Signup/Signup"));
+const LoginLazy = lazy(() => import("./Pages/Login/Login"));
+const AboutLazy = lazy(() => import("./Pages/About/About"));
+const ExploreLazy = lazy(() => import("./Pages/Explore/Explore"));
+const ProductLazy = lazy(() => import("./Pages/Product/Product"));
+const StartLazy = lazy(() => import("./Pages/Start/Start"));
+const MemeLazy = lazy(() => import("./Pages/Meme/MemeContainer.js"));
+const TodoLazy = lazy(() => import("./Pages/Todo/Todo.js"));
 
 export default function Routers() {
   return (

@@ -1,7 +1,7 @@
 import { memo } from "react";
 import Nav from "react-bootstrap/Nav";
 import { useCurrentSectionId } from "./context/CurrentSectionIdProvider";
-import css from "../css/todo.module.css";
+import css from "../../css/todo.module.css";
 
 function TodoSection({ id, name, icon, tasks }) {
   const { sectionId, setSectionid } = useCurrentSectionId();

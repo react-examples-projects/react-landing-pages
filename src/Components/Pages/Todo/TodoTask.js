@@ -1,6 +1,6 @@
 import ListGroup from "react-bootstrap/ListGroup";
 import Check from "react-bootstrap/FormCheck";
-import css from "../css/todo.module.css";
+import css from "../../css/todo.module.css";
 import { toggleCompleteTask, deleteTask, getAllSectionTasks } from "./helpers";
 import { useState } from "react";
 import { useSectionInformation } from "./context/SectionInformationProvider";

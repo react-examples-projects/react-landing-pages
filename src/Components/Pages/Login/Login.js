@@ -7,8 +7,8 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import loginBg from "./img/login_bg.jpg";
-import loginBgUser from "./img/bg_login_user.webp";
+import loginBg from "../../img/login_bg.jpg";
+import loginBgUser from "../../img/bg_login_user.webp";
 import Image from "react-bootstrap/Image";
 //import { useHistory } from "react-router-dom";
 

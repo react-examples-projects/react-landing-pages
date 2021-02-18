@@ -1,5 +1,5 @@
 import React from "react";
-import { aboutContainer, titles, description } from "../css/about.module.css";
+import { aboutContainer, titles, description } from "../../css/about.module.css";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import NavbarMenu from "./Navbar";

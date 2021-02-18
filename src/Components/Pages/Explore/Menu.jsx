@@ -1,6 +1,6 @@
-import { menu, menuImg, menuImgBlack, menuNav } from "../css/explore.module.css";
+import { menu, menuImg, menuImgBlack, menuNav } from "../../css/explore.module.css";
 import { Link } from "react-router-dom";
-import menuOpen from "../img/close.png";
+import menuOpen from "../../img/close.png";
 
 export default function Menu({ toggleMenu }) {
   return (
