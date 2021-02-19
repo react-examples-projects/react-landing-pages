@@ -5,10 +5,12 @@ import css from "../../css/todo.module.css";
 import Nav from "react-bootstrap/Nav";
 import { addSectionTask } from "./helpers";
 import { useSectionInformation } from "./context/SectionInformationProvider";
+import { useCurrentSectionId } from "./context/CurrentSectionIdProvider";
 
 function TodoSectionList({ setCountSectionTasks }) {
   const [showModalSectionTask, setShowModalSectionTask] = useState(false);
   const { sectionTasks, setSectionTasks } = useSectionInformation();
+  const { updateSectionId } = useCurrentSectionId();
   const sectionTasksLength = sectionTasks?.length > 0;
 
   const toggleModalSectionTask = () => {
@@ -18,6 +20,7 @@ function TodoSectionList({ setCountSectionTasks }) {
   const addSectionTaskState = (newSectionTask) => {
     setSectionTasks(sectionTasks.concat(newSectionTask));
     addSectionTask(newSectionTask);
+    updateSectionId();
     setCountSectionTasks((c) => c + 1);
   };
 

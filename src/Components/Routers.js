@@ -1,19 +1,21 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { LoadingSignup, LoadingMain } from "./LoadingsComponents";
-const ProfilePageLazy = lazy(() => import("./Main"));
+
+const TestingLazy = lazy(() => import("./Pages/Testing/Main"));
 const SignupLazy = lazy(() => import("./Pages/Signup/Signup"));
 const LoginLazy = lazy(() => import("./Pages/Login/Login"));
 const AboutLazy = lazy(() => import("./Pages/About/About"));
 const ExploreLazy = lazy(() => import("./Pages/Explore/Explore"));
 const ProductLazy = lazy(() => import("./Pages/Product/Product"));
 const StartLazy = lazy(() => import("./Pages/Start/Start"));
-const MemeLazy = lazy(() => import("./Pages/Meme/MemeContainer.js"));
-const TodoLazy = lazy(() => import("./Pages/Todo/Todo.js"));
+const MemeLazy = lazy(() => import("./Pages/Meme/MemeContainer"));
+const TodoLazy = lazy(() => import("./Pages/Todo/Todo"));
+const HomeLazy = lazy(() => import("./Pages/Home/Home"));
 
 export default function Routers() {
   return (
-    <Router basename="/basename">
+    <Router>
       <Switch>
         <Route exact path="/about">
           <Suspense fallback={<h4>Loading about...</h4>}>
@@ -30,12 +32,6 @@ export default function Routers() {
         <Route exact path="/login">
           <Suspense fallback={<LoadingSignup />}>
             <LoginLazy />
-          </Suspense>
-        </Route>
-
-        <Route exact path="/">
-          <Suspense fallback={<LoadingMain />}>
-            <ProfilePageLazy />
           </Suspense>
         </Route>
 
@@ -66,6 +62,18 @@ export default function Routers() {
         <Route exact path="/todo">
           <Suspense fallback={<h4>Cargando ...</h4>}>
             <TodoLazy />
+          </Suspense>
+        </Route>
+
+        <Route exact path="/testing">
+          <Suspense fallback={<LoadingMain />}>
+            <TestingLazy />
+          </Suspense>
+        </Route>
+
+        <Route exact path="/">
+          <Suspense fallback={<h5>Cargando inicio...</h5>}>
+            <HomeLazy />
           </Suspense>
         </Route>
       </Switch>

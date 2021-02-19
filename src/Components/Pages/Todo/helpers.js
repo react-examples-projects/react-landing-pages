@@ -99,7 +99,7 @@ export function setSectionTask(sectionTasks) {
 }
 
 export function getFirstSectionId() {
-  return getAllSectionTasks()[0]?.id || null;
+  return getAllSectionTasks()[0]?.id || 1;
 }
 
 function getLastSectionId() {

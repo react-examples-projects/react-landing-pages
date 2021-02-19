@@ -5,14 +5,10 @@ import { CurrentSectionIdContext } from "../context/CurrentSectionIdProvider";
 export default function useGetAllTasks() {
   const { sectionId } = useContext(CurrentSectionIdContext);
   const [tasks, setTasks] = useState(getTaskBySection(sectionId));
-
+  
   const getAllTasks = useCallback(() => {
     setTasks(getTaskBySection(sectionId));
   }, [sectionId]);
-
-  const getAllTasksNotMemo = () => {
-    setTasks(getTaskBySection(sectionId));
-  };
 
   useEffect(() => {
     getAllTasks();
@@ -22,6 +18,5 @@ export default function useGetAllTasks() {
     tasks,
     sectionId,
     getAllTasks,
-    getAllTasksNotMemo,
   };
 }

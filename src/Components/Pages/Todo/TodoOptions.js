@@ -1,11 +1,11 @@
 import { useState } from "react";
 import LinkMagic from "./LinkMagic";
 import ModalCreateTask from "./ModalCreateTask";
-import { deleteSectionTask } from "./helpers";
+import { deleteSectionTask, getCountSectionTasks } from "./helpers";
 import { useCurrentSectionId } from "./context/CurrentSectionIdProvider";
 import { useSectionInformation } from "./context/SectionInformationProvider";
 
-export default function TodoOptions({ getAllTasks }) {
+export default function TodoOptions({ getAllTasks, setCountSectionTasks }) {
   const [showModalCreateTask, setShowModalCreateTask] = useState(false);
   const { sectionId } = useCurrentSectionId();
   const { setSectionTasks } = useSectionInformation();
@@ -17,6 +17,8 @@ export default function TodoOptions({ getAllTasks }) {
   const deleteSection = () => {
     const sectionTasks = deleteSectionTask(sectionId);
     setSectionTasks(sectionTasks);
+    setCountSectionTasks(getCountSectionTasks());
+    getAllTasks();
   };
 
   return (

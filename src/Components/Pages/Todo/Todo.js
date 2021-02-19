@@ -6,34 +6,42 @@ import TodoSectionList from "./TodoSectionList";
 import TodoTaksList from "./TodoTasksList";
 import CurrentSectionIdProvider from "./context/CurrentSectionIdProvider";
 import SectionInformationProvider from "./context/SectionInformationProvider";
-import { useState } from "react";
-import { getCountSectionTasks } from "./helpers";
+import useCountSectionTasks from "./hooks/useCountSectionTasks";
+import useGetAllTasks from "./hooks/useGetAllTasks";
 
-export default function Todo() {
-  const [countSectionTasks, setCountSectionTasks] = useState(
-    getCountSectionTasks()
-  );
+function Todo() {
+  const { countSectionTasks, setCountSectionTasks } = useCountSectionTasks();
+  const { tasks, getAllTasks } = useGetAllTasks();
 
   return (
     <>
       <Container className={css.containerTodo}>
         <Row className={css.rowTodo}>
-          <CurrentSectionIdProvider>
-            <SectionInformationProvider>
-              <Col sm={4} md={4} lg={3} className="p-0">
-                <TodoSectionList
-                  {...{
-                    setCountSectionTasks,
-                  }}
-                />
-              </Col>
-              <Col sm={8} md={8} lg={9} className="p-3">
-                <TodoTaksList countSectionTasks={countSectionTasks > 0} />
-              </Col>
-            </SectionInformationProvider>
-          </CurrentSectionIdProvider>
+          <Col sm={4} md={4} lg={3} className="p-0">
+            <TodoSectionList
+              {...{
+                setCountSectionTasks,
+              }}
+            />
+          </Col>
+          <Col sm={8} md={8} lg={9} className="p-3">
+            <TodoTaksList
+              countSectionTasks={countSectionTasks > 0}
+              {...{ setCountSectionTasks, tasks, getAllTasks }}
+            />
+          </Col>
         </Row>
       </Container>
     </>
   );
 }
+
+const TodoWrapper = () => (
+  <CurrentSectionIdProvider>
+    <SectionInformationProvider>
+      <Todo />
+    </SectionInformationProvider>
+  </CurrentSectionIdProvider>
+);
+
+export default TodoWrapper;

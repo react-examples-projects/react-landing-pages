@@ -3,13 +3,17 @@ import TodoTask from "./TodoTask";
 import ListGroup from "react-bootstrap/ListGroup";
 import TodoOptions from "./TodoOptions";
 import css from "../../css/todo.module.css";
-import useGetAllTasks from "./hooks/useGetAllTasks";
 import Image from "react-bootstrap/Image";
 import emptyTasks from "./img/empty_tasks.png";
-
-export default function TodoTaksList({ countSectionTasks, ...props }) {
-  const { tasks, getAllTasks } = useGetAllTasks();
-
+  
+export default function TodoTaksList({
+  countSectionTasks,
+  setCountSectionTasks,
+  tasks,
+  getAllTasks,
+  ...props
+}) {
+ 
   const tasksLength = tasks?.length > 0;
 
   return (
@@ -18,6 +22,7 @@ export default function TodoTaksList({ countSectionTasks, ...props }) {
         <TodoOptions
           {...{
             getAllTasks,
+            setCountSectionTasks,
           }}
         />
       )}
