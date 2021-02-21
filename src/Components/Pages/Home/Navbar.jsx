@@ -1,5 +1,7 @@
 import { memo } from "react";
 import { NavLink } from "react-router-dom";
+import { FiGithub, FiFacebook, FiLinkedin } from "react-icons/fi";
+
 import css from "../../css/home.module.css";
 
 function Navbar() {
@@ -23,15 +25,15 @@ function Navbar() {
 
       <div className={css.socials}>
         <a href="#">
-          <i className="fa fa-cubes" />
+          <FiGithub />
         </a>
 
         <a href="#">
-          <i className="fa fa-laptop-code" />
+          <FiFacebook />
         </a>
 
         <a href="#">
-          <i className="fa fa-download" />
+          <FiLinkedin />
         </a>
       </div>
     </nav>
