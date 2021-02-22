@@ -13,6 +13,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body .btn {
+  border-radius: 3px;
+}
+
 .logo {
   height: 32px;
   margin: 16px;
