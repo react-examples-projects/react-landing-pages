@@ -14,7 +14,7 @@ function UserList({ users }) {
   return (
     <ListGroup variant="flush" className={listCss}>
       {users.map((user) => {
-        return <UserListItem user={user} />;
+        return <UserListItem user={user} key={user.id}/>;
       })}
     </ListGroup>
   );

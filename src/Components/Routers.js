@@ -13,8 +13,6 @@ const MemeLazy = lazy(() => import("./Pages/Meme/MemeContainer"));
 const TodoLazy = lazy(() => import("./Pages/Todo/Todo"));  
 const ReactQueryLazy = lazy(() => import("./Pages/ReactQuery/ReactQuery"));
 
-const HomeLazy = lazy(() => import("./Pages/Home/Home"));
-
 export default function Routers() {
   return (
     <Router>
@@ -73,15 +71,9 @@ export default function Routers() {
           </Suspense>
         </Route>
         
-        <Route exact path="/query">
+        <Route exact path="/">
           <Suspense fallback={<h5>Cargando ReactQueryLazy...</h5>}>
             <ReactQueryLazy />
-          </Suspense>
-        </Route>
-
-        <Route exact path="/">
-          <Suspense fallback={<h5>Cargando inicio...</h5>}>
-            <HomeLazy />
           </Suspense>
         </Route>
       </Switch>

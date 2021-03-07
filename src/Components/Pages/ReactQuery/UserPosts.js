@@ -8,17 +8,17 @@ function UserPosts({ posts, isLoading }) {
   }
 
   if (!posts || !posts.length) {
-    return (
-      <h6 className="mt-1 text-muted">Not there posts.</h6>
-    );
+    return <h6 className="mt-1 text-muted">Not there posts.</h6>;
   }
 
   return (
     <ListGroup variant="flush">
       {posts.map((post) => {
         return (
-          <ListGroup.Item>
-            <small className="d-block text-muted">{post.title}</small>
+          <ListGroup.Item key={post.id} className="pl-0">
+            <small className="d-block text-muted" style={{ fontSize: "70%" }}>
+              {post.title}
+            </small>
           </ListGroup.Item>
         );
       })}

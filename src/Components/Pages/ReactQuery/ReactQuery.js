@@ -5,8 +5,10 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Spinner from "./Spinner";
 import UserList from "./UserList";
+import FormUserCreate from "./FormUserCreate";
 import { fetchUsers } from "./Api";
 import { useQuery, QueryClient, QueryClientProvider } from "react-query";
+import { useState, useEffect, useMemo } from "react";
 
 const btn = css`
   --color: #f2a154;
@@ -37,9 +39,16 @@ const jumbotron = css`
 const queryClient = new QueryClient();
 
 function ReactQuery() {
-  const { isLoading, isError, data } = useQuery("users", fetchUsers, {
+  const { isLoading, data } = useQuery("users", fetchUsers, {
     refetchOnWindowFocus: false,
   });
+
+  const [users, setUsers] = useState([]);
+  const updateUsers = useMemo(() => setUsers, []);
+
+  useEffect(() => {
+    setUsers(data);
+  }, [data]);
 
   return (
     <Container>
@@ -56,9 +65,11 @@ function ReactQuery() {
       <Spinner isLoading={isLoading} />
       <Row>
         <Col>
-          <UserList users={data} />
+          <UserList users={users} />
         </Col>
-        <Col></Col>
+        <Col>
+          <FormUserCreate setUsers={updateUsers} />
+        </Col>
       </Row>
 
       <button className={btn}>Aceptar</button>

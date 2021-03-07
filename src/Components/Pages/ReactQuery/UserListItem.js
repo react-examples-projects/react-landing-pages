@@ -6,15 +6,26 @@ import { useState, memo } from "react";
 import { useMutation } from "react-query";
 import { fetchUserPosts } from "./Api";
 
+// Own cache implementation
+const cache = {};
+
 function UserListItem({ user }) {
-  const { mutate, isError, data, isLoading } = useMutation((id) =>
-    fetchUserPosts(id)
+  // https://react-query.tanstack.com/guides/mutations
+  const { mutate, data, isLoading } = useMutation(
+    (id) => fetchUserPosts(id),
+    {
+      onSuccess(data, id) {
+        cache[id] = data;
+      },
+    }
   );
   const [isOpen, setOpen] = useState(false);
 
   const getPostUser = (id) => {
     setOpen((f) => !f);
-    !isOpen && mutate(id);
+    if (!(id in cache)) {
+      !isOpen && mutate(id);
+    }
   };
 
   return (
