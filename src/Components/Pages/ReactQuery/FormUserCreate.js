@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Spinner from "./Spinner";
 import { useMutation } from "react-query";
 import { createUser } from "./Api";
-import { useState, memo, useEffect } from "react";
+import { useState, memo } from "react";
 
 function FormUserCreate({ setUsers }) {
   const [auth, setAuth] = useState({
@@ -14,7 +14,7 @@ function FormUserCreate({ setUsers }) {
   });
 
   const [isInvalid, setIsInvalid] = useState(false);
-  const { isLoading, isError, isSuccess, mutate } = useMutation((body) =>
+  const { isLoading, isError, isSuccess, mutateAsync } = useMutation((body) =>
     createUser(body)
   );
 
@@ -23,8 +23,9 @@ function FormUserCreate({ setUsers }) {
     setAuth((state) => ({ ...state, [id]: value }));
   };
 
-  const onSubmit = () => {
-    mutate(auth);
+  const onSubmit = async () => {
+    const userCreated = await mutateAsync(auth);
+    setUsers((users) => [...users, userCreated]);
   };
 
   const validateForm = (e) => {
@@ -35,10 +36,6 @@ function FormUserCreate({ setUsers }) {
     }
     onSubmit();
   };
-
-  useEffect(() => {
-    setUsers((users) => [...users, auth]);
-  }, [isSuccess, setUsers]);
 
   return (
     <Form noValidate validated={isInvalid} onSubmit={validateForm}>

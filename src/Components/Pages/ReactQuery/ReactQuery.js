@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import styled from "@emotion/styled";
 import Container from "react-bootstrap/Container";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Row from "react-bootstrap/Row";
@@ -36,6 +37,26 @@ const jumbotron = css`
   color: #fff;
 `;
 
+const ButtonMore = styled.button`
+  display: ${(props) => props.display || "inline-block"};
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  border: 0;
+  text-align: center;
+  background: #f875aa;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  &:hover {
+    background: #e84688;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem #e846886b;
+  }
+`;
+
 const queryClient = new QueryClient();
 
 function ReactQuery() {
@@ -54,6 +75,7 @@ function ReactQuery() {
     <Container>
       <Jumbotron className={`${jumbotron} mt-5 mb-4`}>
         <h4>Probando react-query y styled components</h4>
+        <ButtonMore>Saber más...</ButtonMore>
       </Jumbotron>
 
       <p className="lead">
