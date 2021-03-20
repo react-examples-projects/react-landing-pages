@@ -3,6 +3,8 @@ import css from "./Tv.module.css";
 import { BiSearchAlt2 } from "react-icons/bi";
 import ShowList from "./ShowList";
 
+let timeId;
+
 export default function Tv() {
   const [shows, setShows] = useState([]);
 
@@ -16,8 +18,10 @@ export default function Tv() {
   }
 
   function debounceSearch(e) {
-    if (e.target.value.length) {
-      setTimeout(() => searchTv(e), 500);
+    const value = e.target.value;
+    if (timeId) clearTimeout(timeId);
+    if (value.length) {
+      timeId = setTimeout(() => searchTv(e), 100);
     } else {
       setShows([]);
     }
