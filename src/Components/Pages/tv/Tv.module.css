@@ -100,3 +100,16 @@
   background: #eee;
   cursor: pointer;
 }
+
+.showList::-webkit-scrollbar {
+  width: 10px;
+}
+
+.showList::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.showList::-webkit-scrollbar-thumb {
+  background: rgb(206, 206, 206);
+  border-radius: 5px;
+}

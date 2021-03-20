@@ -18,6 +18,8 @@ export default function Tv() {
   function debounceSearch(e) {
     if (e.target.value.length) {
       setTimeout(() => searchTv(e), 500);
+    } else {
+      setShows([]);
     }
   }
 
