@@ -10,14 +10,28 @@ const ExploreLazy = lazy(() => import("./Pages/Explore/Explore"));
 const ProductLazy = lazy(() => import("./Pages/Product/Product"));
 const StartLazy = lazy(() => import("./Pages/Start/Start"));
 const MemeLazy = lazy(() => import("./Pages/Meme/MemeContainer"));
-const TodoLazy = lazy(() => import("./Pages/Todo/Todo"));  
+const TodoLazy = lazy(() => import("./Pages/Todo/Todo"));
 const ReactQueryLazy = lazy(() => import("./Pages/ReactQuery/ReactQuery"));
 const Me = lazy(() => import("./Pages/Me/Me"));
+const GPS = lazy(() => import("./Pages/Gps/Gps"));
+const Tv = lazy(() => import("./Pages/tv/Tv"));
 
 export default function Routers() {
   return (
     <Router>
       <Switch>
+        <Route exact path="/tv">
+          <Suspense fallback={<h4>Loading tv maze...</h4>}>
+            <Tv />
+          </Suspense>
+        </Route>
+
+        <Route exact path="/gps">
+          <Suspense fallback={<h4>Loading GPS...</h4>}>
+            <GPS />
+          </Suspense>
+        </Route>
+
         <Route exact path="/me">
           <Suspense fallback={<h4>Loading Me...</h4>}>
             <Me />
@@ -77,7 +91,7 @@ export default function Routers() {
             <TestingLazy />
           </Suspense>
         </Route>
-        
+
         <Route exact path="/">
           <Suspense fallback={<h5>Cargando ReactQueryLazy...</h5>}>
             <ReactQueryLazy />

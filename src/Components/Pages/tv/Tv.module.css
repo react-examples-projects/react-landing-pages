@@ -1,0 +1,101 @@
+.container {
+  width: 600px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.header {
+  position: relative;
+  background: url("../../img/searchBanner.PNG");
+  background-size: 100% 100%;
+  width: 100%;
+  height: 150px;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    80deg,
+    rgba(0, 0, 0, 0.438),
+    rgba(0, 0, 0, 0.219),
+    rgba(0, 0, 0, 0.027)
+  );
+}
+
+.header > h1 {
+  color: #fff;
+  position: relative;
+  z-index: 10;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.group {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  z-index: 2;
+  font-size: 1.5rem;
+  top: 17px;
+  left: 13px;
+  fill: rgba(0, 0, 0, 0.719);
+}
+
+.input {
+  padding: 1rem 1rem;
+  padding-left: 2.8rem;
+  border-radius: 5px;
+  border: 1px solid rgb(218, 218, 218);
+  width: 100%;
+  display: block;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.719);
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem #b8b5ff5e;
+  border-color: #7968e6c9;
+}
+
+.input:focus + .icon {
+  fill: #553df0c9;
+}
+
+.showList {
+  margin-top: 1rem;
+  padding: 0;
+  position: absolute;
+  height: 340px;
+  width: 100%;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.showList > li {
+  font-size: 14px;
+  transition: all 0.2s ease;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.showList > li:hover {
+  background: #eee;
+  cursor: pointer;
+}
