@@ -44,10 +44,3 @@ npm run build
 ## Show your support
 
 Give a ⭐️ if this project helped you!
-=======
-# Aplicación para aprender el framework React Bootstrap
-
-Este repositorio solo tiene prácticas con react boostrap y otras herramientas de react
-
-Tambien es creado con el fin de usar la API <Suspense> de ReactJS
->>>>>>> b9706e32f82dd9cb56e916f0665af6848691cb1d
