@@ -81,7 +81,7 @@
 
 .showList {
   margin-top: 1rem;
-  padding: 0;
+  padding: 0 5px;
   position: absolute;
   height: 340px;
   width: 100%;
@@ -94,6 +94,7 @@
   transition: all 0.2s ease;
   margin: 0;
   padding: 0.5rem;
+  border-radius: 4px;
 }
 
 .showList > li:hover {
@@ -102,7 +103,7 @@
 }
 
 .showList::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 .showList::-webkit-scrollbar-track {

@@ -12,6 +12,7 @@ const StartLazy = lazy(() => import("./Pages/Start/Start"));
 const MemeLazy = lazy(() => import("./Pages/Meme/MemeContainer"));
 const TodoLazy = lazy(() => import("./Pages/Todo/Todo"));
 const ReactQueryLazy = lazy(() => import("./Pages/ReactQuery/ReactQuery"));
+const Index = lazy(() => import("./Pages/Index"));
 const Me = lazy(() => import("./Pages/Me/Me"));
 const GPS = lazy(() => import("./Pages/Gps/Gps"));
 const Tv = lazy(() => import("./Pages/tv/Tv"));
@@ -92,9 +93,18 @@ export default function Routers() {
           </Suspense>
         </Route>
 
-        <Route exact path="/">
+        {/* <Route exact path="/">
           <Suspense fallback={<h5>Cargando ReactQueryLazy...</h5>}>
             <ReactQueryLazy />
+          </Suspense>
+        </Route> */}
+        <Route>
+          <Suspense
+            fallback={
+              <h6 className="text-center mt-5 pt-5">Cargando componentes...</h6>
+            }
+          >
+            <Index />
           </Suspense>
         </Route>
       </Switch>
