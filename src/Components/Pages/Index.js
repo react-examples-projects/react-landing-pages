@@ -37,7 +37,9 @@ export default function Index() {
                 alt={project.name}
                 fluid
               />
-              <p className="mt-2 text-muted">{project.name}</p>
+              <p className="mt-2 text-muted">
+                <small>{project.title}</small>
+              </p>
             </Col>
           );
         })}

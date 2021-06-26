@@ -31,7 +31,7 @@ npm run build
 ```
 
 ## Demo
-[Preview]()
+[Preview](https://nostalgic-pasteur-bc32a1.netlify.app)
 
 ## Author
 
