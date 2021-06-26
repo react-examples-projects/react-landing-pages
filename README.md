@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Welcome to Landing Pages examples 👋
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://github.com/react-testing/react-suspense)
 [![Twitter: libardo\_r12](https://img.shields.io/twitter/follow/libardo\_r12.svg?style=social)](https://twitter.com/libardo\_r12)
@@ -43,3 +44,10 @@ npm run build
 ## Show your support
 
 Give a ⭐️ if this project helped you!
+=======
+# Aplicación para aprender el framework React Bootstrap
+
+Este repositorio solo tiene prácticas con react boostrap y otras herramientas de react
+
+Tambien es creado con el fin de usar la API <Suspense> de ReactJS
+>>>>>>> b9706e32f82dd9cb56e916f0665af6848691cb1d
