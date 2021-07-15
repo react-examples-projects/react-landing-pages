@@ -1,6 +1,4 @@
 import { Container, Col, Row, Image, Jumbotron } from "react-bootstrap";
-import { Link } from "react-router-dom";
-
 import useBody from "../hooks/useBody";
 import projects from "./projects";
 
@@ -10,7 +8,10 @@ export default function Index() {
   return (
     <Container className="my-4 w-75" fluid>
       <Jumbotron className="jumbotron-banner text-white">
-        <h3>Minimalist Landing Pages with ReactJS</h3>
+        <h1 className="title">
+          Minimalist Landing Pages <br />
+          with ReactJS
+        </h1>
         <p className="p-0">
           A group of landing pages and others web applications with reactjs
           using react-booststrap.

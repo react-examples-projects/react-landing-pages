@@ -1,8 +1,4 @@
 import { Suspense } from "react";
-import {
-  LoadingProfilePage,
-  LoadingProfileTime,
-} from "../../LoadingsComponents";
 import Media from "react-bootstrap/Media";
 import Badge from "react-bootstrap/Badge";
 import { fetchProfileData } from "../../../fakeApi";
@@ -14,11 +10,11 @@ const resource = fetchProfileData();
 export default function Profiles() {
   return (
     <ErrorBoundary message="Error en ProfileDetails">
-      <Suspense fallback={<LoadingProfilePage />}>
+      <Suspense fallback={"Loading..."}>
         <ProfileDetails />
 
         <ErrorBoundary message="Error en ProfileTimeLine">
-          <Suspense fallback={<LoadingProfileTime />}>
+          <Suspense fallback={"Loading..."}>
             <ProfileTimeline />
           </Suspense>
         </ErrorBoundary>
