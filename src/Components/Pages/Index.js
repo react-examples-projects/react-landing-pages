@@ -28,7 +28,7 @@ export default function Index() {
         </small>
       </Jumbotron>
 
-      <Row className="mt-5 mx-auto w-100">
+      <Row className="mt-5 mx-auto w-100" data-aos="fade-up">
         {projects.map((project, i) => {
           return (
             <Col
@@ -37,10 +37,6 @@ export default function Index() {
               lg={4}
               className="mb-2 p-0"
               key={project.preview}
-              data-aos="fade-up"
-              data-aos-delay={i * 100}
-              data-aos-duration={i * 100}
-              data-aos-offset="0"
             >
               <div className="bg-white m-1 p-3 py-1 h-100 rounded-lg shadow-sm">
                 <p className="text-muted mb-0">

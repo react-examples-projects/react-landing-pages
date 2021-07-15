@@ -1,0 +1,124 @@
+.title-header {
+  margin-top: 10rem;
+}
+
+.header-figure {
+  border-radius: 10px;
+  top: 3rem;
+}
+
+.header-wave {
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+.section-image {
+  border-radius: 30px;
+  transform: skew(4deg);
+}
+
+.section-image-rect {
+  position: absolute;
+  width: 108%;
+  height: 105%;
+  background: #185adb;
+  z-index: -1;
+  top: -1rem;
+  left: -1rem;
+  border-radius: 3rem;
+  transform: rotate(-10deg) translateX(-1rem);
+}
+
+.bg-services {
+  width: 100%;
+  left: 0;
+  top: 118rem;
+}
+
+.blob {
+  position: absolute;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.blob:nth-child(1) {
+  background-image: url("../../img/company-page/blob.svg");
+  top: 48rem;
+  width: 40rem;
+  height: 28rem;
+}
+
+.blob:nth-child(2) {
+  background-image: url("../../img/company-page/blob2.svg");
+  top: 62rem;
+  right: 2rem;
+  width: 45rem;
+  height: 32rem;
+}
+
+.user-feedback {
+  background: url("../../img/company-page/section-image-2.svg");
+  background-size: cover;
+  border-radius: 10px;
+}
+
+.footer {
+  background-image: url("../../img/company-page/footer_bg.svg");
+  background-size: cover;
+  background-position-y: -16vw;
+  height: 450px;
+}
+
+.footer > .row {
+  width: 100% !important;
+}
+
+.header-feactures {
+  top: 6rem;
+}
+
+.header-feactures .feacture-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-feactures .feacture-card img {
+  max-width: 200px;
+}
+
+@media screen and (max-width: 992px) {
+  .navbar-collapse {
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: white;
+    width: 40%;
+    height: 100%;
+    z-index: 199;
+    box-shadow: 0 0 20px #00000040;
+  }
+
+  .title-header {
+    margin-top: 2rem;
+  }
+
+  .header-wave {
+    width: 1000px !important;
+  }
+
+  body .footer {
+    background-position: 0;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  body .footer {
+    min-height: 480px;
+    height: auto;
+    background-repeat: no-repeat;
+    background-position: 0;
+  }
+}

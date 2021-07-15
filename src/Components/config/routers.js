@@ -11,12 +11,13 @@ const BlogLayout = lazy(() => import("../Pages/BlogLayout/BlogLayout"));
 const BlogLayout2 = lazy(() => import("../Pages/BlogLayout2/BlogLayout2"));
 const TodoLazy = lazy(() => import("../Pages/Todo/Todo"));
 const Converter = lazy(() => import("../Pages/Converter/Converter"));
+const Company = lazy(() => import("../Pages/Company/Company"));
 const Index = lazy(() => import("../Pages/Index"));
 const Me = lazy(() => import("../Pages/Me/Me"));
 const GPS = lazy(() => import("../Pages/Gps/Gps"));
 const Tv = lazy(() => import("../Pages/tv/Tv"));
 const route = (path, Component) => ({ path, Component });
-   
+ 
 const routers = [
   route("/tv", Tv),
   route("/gps", GPS),
@@ -32,6 +33,7 @@ const routers = [
   route("/blog", BlogLayout),
   route("/blog2", BlogLayout2),
   route("/converter", Converter),
+  route("/company", Company),
   route("/testing", TestingLazy),
   route("/", Index),
 ];
