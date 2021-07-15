@@ -1,8 +1,8 @@
 export default function Header() {
   return (
-    <header class="header">
-      <span class="menu-icon"></span>
-      <h4 class="header-title">
+    <header className="header">
+      <span className="menu-icon"></span>
+      <h4 className="header-title">
         Plantila HTML5 por
         <a
           href="https://portfolio-znareak.vercel.app/"

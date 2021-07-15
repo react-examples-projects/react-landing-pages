@@ -6,6 +6,7 @@ import img5 from "../img/5.PNG";
 import img6 from "../img/6.PNG";
 import img7 from "../img/7.PNG";
 import img8 from "../img/8.png"
+import img9 from "../img/9.png"
 
 const projects = [
   {
@@ -37,6 +38,11 @@ const projects = [
     title: "Blog Layout",
     preview: img8,
     to: "/blog",
+  },
+  {
+    title: "Blog Layout 2",
+    preview: img9,
+    to: "/blog2",
   },
   {
     title: "Meme template generator",

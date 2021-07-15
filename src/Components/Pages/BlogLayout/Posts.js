@@ -2,10 +2,10 @@ import PosItem from "./components/PostItem";
 
 export default function Posts() {
   return (
-    <section class="post">
-      <h2 class="section-title">Noticias</h2>
+    <section className="post">
+      <h2 className="section-title">Noticias</h2>
 
-      <div class="posts">
+      <div className="posts">
         <PosItem />
         <PosItem />
         <PosItem />

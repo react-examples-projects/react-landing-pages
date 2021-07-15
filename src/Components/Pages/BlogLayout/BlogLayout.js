@@ -7,12 +7,12 @@ import Posts from "./Posts";
 
 export default function BlogLayout() {
   return (
-    <div class="container-flex">
+    <div className="container-flex">
       <SideNav />
-      <main class="container">
+      <main className="container">
         <Header />
 
-        <div class="content">
+        <div className="content">
           <Presentation />
           <Services />
           <Posts />

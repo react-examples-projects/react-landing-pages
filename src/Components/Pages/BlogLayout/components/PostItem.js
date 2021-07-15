@@ -1,7 +1,7 @@
 import pic02 from "../../../img/pic02.jpg";
 export default function PostItem() {
   return (
-    <div class="post-published">
+    <div className="post-published">
       <figure>
         <img src={pic02} alt="Post item placeholder" />
         <figcaption>Interdum aenean</figcaption>
@@ -11,7 +11,7 @@ export default function PostItem() {
         Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat
         tempus aliquam.
       </p>
-      <button class="button">Leer más</button>
+      <button className="button">Leer más</button>
     </div>
   );
 }

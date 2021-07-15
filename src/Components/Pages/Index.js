@@ -13,8 +13,9 @@ export default function Index() {
           with ReactJS
         </h1>
         <p className="p-0">
-          A group of landing pages and others web applications with reactjs
-          using react-booststrap.
+          A group of landing pages and others web applications with reactjs{" "}
+          <br />
+          using react-booststrap and native CSS.
         </p>
         <small className="d-block">
           You can see more here:

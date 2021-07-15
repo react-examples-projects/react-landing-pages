@@ -2,13 +2,13 @@ import React from "react";
 
 export default function SideNav() {
   return (
-    <nav class="menu" role="navigation">
-      <div class="search">
+    <nav className="menu" role="navigation">
+      <div className="search">
         <input type="search" name="q" id="q" placeholder="Buscar..." />
       </div>
 
-      <section class="documents">
-        <h4 class="section-title">Documentos</h4>
+      <section className="documents">
+        <h4 className="section-title">Documentos</h4>
         <ul>
           <li>Archivos</li>
           <li>Juegos</li>
@@ -23,10 +23,10 @@ export default function SideNav() {
         </ul>
       </section>
 
-      <section class="examples">
-        <h4 class="section-title">Ejemplos</h4>
+      <section className="examples">
+        <h4 className="section-title">Ejemplos</h4>
 
-        <div class="example">
+        <div className="example">
           <figure>
             <img src="img/pic03.jpg" alt="" />
             <figcaption>
@@ -35,7 +35,7 @@ export default function SideNav() {
             </figcaption>
           </figure>
         </div>
-        <div class="example">
+        <div className="example">
           <figure>
             <img src="img/pic03.jpg" alt="" />
             <figcaption>
@@ -44,7 +44,7 @@ export default function SideNav() {
             </figcaption>
           </figure>
         </div>
-        <div class="example">
+        <div className="example">
           <figure>
             <img src="img/pic03.jpg" alt="" />
             <figcaption>

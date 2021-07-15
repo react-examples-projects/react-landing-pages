@@ -8,6 +8,7 @@ const ProductLazy = lazy(() => import("../Pages/Product/Product"));
 const StartLazy = lazy(() => import("../Pages/Start/Start"));
 const MemeLazy = lazy(() => import("../Pages/Meme/MemeContainer"));
 const BlogLayout = lazy(() => import("../Pages/BlogLayout/BlogLayout"));
+const BlogLayout2 = lazy(() => import("../Pages/BlogLayout2/BlogLayout2"));
 const TodoLazy = lazy(() => import("../Pages/Todo/Todo"));
 const Index = lazy(() => import("../Pages/Index"));
 const Me = lazy(() => import("../Pages/Me/Me"));
@@ -28,6 +29,7 @@ const routers = [
   route("/meme", MemeLazy),
   route("/todo", TodoLazy),
   route("/blog", BlogLayout),
+  route("/blog2", BlogLayout2),
   route("/testing", TestingLazy),
   route("/", Index),
 ];

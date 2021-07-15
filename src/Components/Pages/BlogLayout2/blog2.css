@@ -1,0 +1,184 @@
+@font-face {
+  font-family: "Quicksand";
+  line-height: normal;
+  font-size: 1rem;
+  src: url("./fonts/Quicksand-Regular.ttf");
+}
+@font-face {
+  font-family: "Quicksand";
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: bold;
+  src: url("./fonts/Quicksand-Bold.ttf");
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*::after,
+*::before {
+  display: table;
+  clear: both;
+}
+
+body {
+  background-color: #ededed;
+  font-family: "Quicksand";
+  font-size: 16px;
+}
+#toggle-menu,
+.label-toggle {
+  display: none;
+}
+.principal {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+
+  /*Es importante esta alineacion ya que el contenedor (contenido) agarria toda la
+     altura del documento, y con flex-start la alineacion es hacia el inicio (arriba)
+   */
+  align-items: flex-start;
+}
+.contenido {
+  height: auto;
+  margin: 60px auto;
+  position: relative;
+  width: 60%;
+}
+
+.principal .contenido header,
+.principal .contenido-principal {
+  padding: 60px 50px 10px 60px;
+}
+
+.principal .contenido-principal {
+  word-break: break-all;
+  height: auto;
+}
+
+.principal .contenido-principal p {
+  padding: 30px 0;
+  line-height: 25px;
+}
+.principal .contenido footer {
+  background-color: #f7f7f7;
+  bottom: 0;
+  width: 100%;
+  padding: 40px 0;
+}
+.principal .contenido footer .desc {
+  margin-left: 50px;
+}
+.principal .contenido footer time {
+  margin-right: 15px;
+}
+
+/* ASIDE */
+.principal .contenido,
+.principal .secundario {
+  background-color: #fff;
+  box-shadow: 1px 0 7px rgba(0, 0, 0, 0.082);
+}
+.principal .secundario {
+  height: auto;
+  width: 30%;
+}
+.principal .secundario .titulo-aside {
+  width: 70%;
+  margin: 120px auto 30px auto;
+  position: relative;
+}
+.principal .secundario .titulo-aside label.label-toggle {
+  cursor: pointer;
+  font-size: 28px;
+  float: right;
+}
+.principal .secundario .titulo-aside #toggle-menu {
+  /*display: none;*/
+}
+.principal .secundario .titulo-aside p.subtitulo {
+  color: gray;
+  margin-top: 15px;
+}
+.principal .secundario .titulo-aside .busqueda-aside {
+  margin-top: 100px;
+}
+.principal .secundario .titulo-aside .busqueda-aside input[type="search"] {
+  background-color: #ededed9d;
+  border: 1px solid rgb(177, 177, 177);
+  padding: 10px 6px;
+  width: 230px;
+}
+.principal .secundario .titulo-aside .publicaciones {
+  margin-top: 80px;
+}
+.principal .secundario .titulo-aside .publicaciones ul {
+  list-style: none;
+  margin-bottom: 100px;
+}
+.principal .secundario .titulo-aside .publicaciones ul h3 {
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+.principal .secundario .titulo-aside .publicaciones ul li.post-nothing {
+  color: rgb(177, 177, 177);
+}
+.principal .secundario .titulo-aside .publicaciones ul li {
+  border-bottom: 1px solid rgb(177, 177, 177);
+  padding: 18px 3px;
+  cursor: pointer;
+  transition: 0.2s all ease;
+}
+.principal .secundario .titulo-aside .publicaciones ul li:hover {
+  background-color: rgba(197, 197, 197, 0.089);
+}
+
+@media screen and (max-width: 1050px) {
+  .label-toggle {
+    display: inline-block;
+  }
+  .principal {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .principal .contenido,
+  .principal .secundario {
+    width: 70%;
+  }
+  .principal .secundario .titulo-aside {
+    width: 100%;
+  }
+  .principal .secundario .titulo-aside {
+    margin: 50px 0; /*0 para que no se centre a los lados y que no tenga margenes porque ya
+                       tiene paddings 3px*/
+    padding: 0 30px; /*darle mas espacio a los items del menu*/
+  }
+
+  .principal .secundario .titulo-aside .publicaciones,
+  .principal .secundario .titulo-aside .busqueda-aside {
+    display: none;
+  }
+
+  #toggle-menu:checked ~ .busqueda-aside,
+  #toggle-menu:checked ~ .publicaciones {
+    display: block;
+  }
+}
+@media screen and (max-width: 780px) {
+  body {
+    font-size: 14px !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .principal .contenido,
+  .principal .secundario,
+  .principal .secundario .titulo-aside .busqueda-aside input[type="search"] {
+    width: 100%;
+  }
+}

@@ -2,8 +2,8 @@ import pic01 from "../../img/pic01.jpg";
 
 export default function Presentation() {
   return (
-    <section class="presentation">
-      <div class="presentation-text">
+    <section className="presentation">
+      <div className="presentation-text">
         <h1>Hola!, Me llamo libardo y realice esta genial plantilla</h1>
         <h4>Una sencilla plantilla, copiada desde fuentes sin copyright</h4>
         <p>
@@ -12,7 +12,7 @@ export default function Presentation() {
           pariatur blanditiis est at, deleniti amet eius saepe deserunt suscipit
           numquam!
         </p>
-        <button class="button">Leer más</button>
+        <button className="button">Leer más</button>
       </div>
 
       <img
