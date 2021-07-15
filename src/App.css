@@ -59,3 +59,24 @@ img {
   justify-content: center;
   align-items: center;
 }
+
+@media screen and (max-width: 992px) {
+  .title {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .title {
+    font-size: 1.2rem;
+  }
+
+  body {
+    font-size: 13px;
+  }
+
+  .container-fluid {
+    padding: 0 0.5rem;
+    width: 95% !important;
+  }
+}

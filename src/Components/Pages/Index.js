@@ -27,7 +27,7 @@ export default function Index() {
         </small>
       </Jumbotron>
 
-      <Row className="mt-5">
+      <Row className="mt-5 mx-auto w-100">
         {projects.map((project, i) => {
           return (
             <Col

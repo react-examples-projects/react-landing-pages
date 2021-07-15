@@ -7,13 +7,14 @@ const ExploreLazy = lazy(() => import("../Pages/Explore/Explore"));
 const ProductLazy = lazy(() => import("../Pages/Product/Product"));
 const StartLazy = lazy(() => import("../Pages/Start/Start"));
 const MemeLazy = lazy(() => import("../Pages/Meme/MemeContainer"));
+const BlogLayout = lazy(() => import("../Pages/BlogLayout/BlogLayout"));
 const TodoLazy = lazy(() => import("../Pages/Todo/Todo"));
 const Index = lazy(() => import("../Pages/Index"));
 const Me = lazy(() => import("../Pages/Me/Me"));
 const GPS = lazy(() => import("../Pages/Gps/Gps"));
 const Tv = lazy(() => import("../Pages/tv/Tv"));
 const route = (path, Component) => ({ path, Component });
-
+  
 const routers = [
   route("/tv", Tv),
   route("/gps", GPS),
@@ -26,6 +27,7 @@ const routers = [
   route("/start", StartLazy),
   route("/meme", MemeLazy),
   route("/todo", TodoLazy),
+  route("/blog", BlogLayout),
   route("/testing", TestingLazy),
   route("/", Index),
 ];
