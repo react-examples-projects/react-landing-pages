@@ -31,3 +31,18 @@ body .btn {
   /* font-family: "Alfa Slab One", cursive; */
   font-weight: bold;
 }
+
+img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.jumbotron-banner {
+  background: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.164),
+      rgba(0, 0, 0, 0.603)
+    ),
+    url("./Components/img/jumbotron.jpg");
+  background-size: cover;
+}
