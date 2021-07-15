@@ -1,0 +1,245 @@
+@font-face {
+  src: url("./fonts/Quicksand-Regular.ttf");
+  font-family: "Quicksand";
+}
+@font-face {
+  src: url("./fonts/Quicksand-Bold.ttf");
+  font-family: "Quicksand";
+  font-weight: bold;
+}
+@font-face {
+  src: url("./fonts/Quicksand-Light.ttf");
+  font-family: "Quicksand";
+  font-weight: lighter;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand";
+}
+body {
+  font-size: 16px;
+  line-height: normal;
+  -webkit-font-smoothing: antialiased;
+  background-color: #f1f3f4b6;
+}
+.btn {
+  font-weight: bold;
+  padding: 12px 28px;
+  text-align: center;
+  text-transform: uppercase;
+  border-color: #d63447;
+  border-style: solid;
+  outline: none;
+  cursor: pointer;
+}
+.principal {
+  max-width: 1100px;
+  width: 90%;
+  margin: 3.5rem auto;
+  padding: 35px 0 0 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.151);
+  background-color: #fff;
+}
+.principal .cabecera {
+  width: 100%;
+}
+
+.principal .cabecera .gestion-cuentas {
+  float: right;
+  margin-bottom: 6rem;
+  margin-right: 2rem;
+}
+
+.principal .cabecera .gestion-cuentas button:first-child,
+.principal .cabecera .gestion-cuentas button:last-child,
+.principal .cabecera .logo .descripcion-logo button,
+.principal .cabecera .logo .lista ul li,
+.principal .banner button {
+  transition: all 0.1s ease-in !important;
+  border: 3px solid #d63447;
+}
+.principal .cabecera .logo .lista ul li:hover a {
+  color: #fff;
+}
+
+.principal .cabecera .gestion-cuentas button:first-child {
+  margin-right: 12px;
+  background: transparent;
+  color: #d63447;
+}
+.principal .cabecera .gestion-cuentas button:first-child:hover,
+.principal .cabecera .logo .lista ul li:hover {
+  background-color: #d63447;
+  color: #fff;
+}
+.principal .cabecera .gestion-cuentas button:last-child {
+  background: #d63447;
+  color: #fff;
+}
+.principal .cabecera .gestion-cuentas button:last-child:hover,
+.principal .cabecera .logo .descripcion-logo button:hover {
+  background: transparent;
+  color: #d63447;
+}
+.principal .cabecera .logo {
+  clear: both;
+  width: 80%;
+  margin: 0 auto;
+  height: auto;
+}
+.principal .cabecera .logo .logo-container {
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.principal .cabecera .logo .logo-container .logo-part-1,
+.principal .cabecera .logo .logo-container .logo-part-2 {
+  border: 2px solid #000;
+  width: 50%;
+  padding: 10px 0;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.principal .cabecera .logo .logo-container .logo-part-1 {
+  float: left;
+  background: #000;
+  color: #fff;
+}
+.principal .cabecera .logo .logo-container .logo-part-2 {
+  float: right;
+}
+
+.principal .cabecera .logo .descripcion-logo {
+  margin-top: 3rem;
+}
+.principal .cabecera .logo .descripcion-logo h2 {
+  font-weight: lighter;
+  color: rgba(0, 0, 0, 0.63);
+  text-align: center;
+}
+.principal .cabecera .logo .descripcion-logo button {
+  background: #d63447;
+  color: #fff;
+  padding: 18px 80px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+.principal .cabecera .logo .lista {
+  margin: 3.8rem 0;
+}
+.principal .cabecera .logo .lista ul {
+  list-style: none;
+  text-align: center;
+}
+.principal .cabecera .logo .lista ul li {
+  display: inline-block;
+  padding: 8px 15px;
+  border: 1px solid #d63447;
+  margin: 0 0.3rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.principal .cabecera .logo .lista ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
+}
+.principal .banner {
+  background-color: #d63447;
+  padding: 4rem 0;
+  color: #fff;
+  text-align: center;
+}
+.principal .banner h1 {
+  margin-bottom: 2rem;
+}
+.principal .banner ul li {
+  line-height: 2.4;
+  font-size: 18px;
+}
+.principal .banner button {
+  background-color: #000;
+  margin-top: 3rem;
+  color: #fff;
+}
+.principal .banner button:hover {
+  background-color: #fff;
+  color: #000;
+}
+.principal .items {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 6.5rem;
+  padding: 0 2rem;
+}
+.principal .items .item {
+  padding: 0 35px;
+}
+.principal .items .item h2 {
+  margin-bottom: 1rem;
+}
+.principal .items .item p {
+  color: #000 !important;
+  text-align: justify;
+}
+.principal footer {
+  margin-top: 5rem;
+  padding: 20px 0;
+  position: relative;
+}
+.principal footer h2 {
+  margin-top: 1rem;
+}
+.principal footer p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #d63447;
+}
+.principal footer h2,
+.principal footer p {
+  text-align: center;
+}
+.principal footer::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 90%;
+  height: 3px;
+  background-color: #d63447;
+  transform: translateX(-50%);
+}
+@media screen and (max-width: 960px) {
+  .principal .items {
+    flex-direction: column;
+  }
+  .principal .items .item {
+    margin: 2rem 0;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 720px) {
+  body {
+    font-size: 12px;
+  }
+  .principal .gestion-cuentas {
+    float: none !important;
+    margin: 0 auto;
+    margin-right: 0 !important;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 630px) {
+  .principal {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 390px) {
+  .principal .cabecera .logo .logo-container {
+    width: 80% !important;
+  }
+}
